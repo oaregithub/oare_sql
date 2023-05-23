@@ -3,6 +3,7 @@ import fs from 'fs';
 
 const clearTriggers = async () => {
   console.info('Clearing triggers...');
+
   const triggers: string[] = await knex('information_schema.triggers')
     .pluck('TRIGGER_NAME')
     .where({ trigger_schema: 'oarebyue_0.3' });
@@ -14,6 +15,7 @@ const clearTriggers = async () => {
 
 const createTriggers = async () => {
   console.info('Creating triggers...');
+
   const triggerTypes = fs.readdirSync('./src/triggers');
 
   await Promise.all(
@@ -35,6 +37,7 @@ const createTriggers = async () => {
 
 const clearStoredProcedures = async () => {
   console.info('Clearing stored procedures...');
+
   const storedProcedures: string[] = await knex('information_schema.routines')
     .pluck('ROUTINE_NAME')
     .where({ routine_schema: 'oarebyue_0.3', routine_type: 'PROCEDURE' });
@@ -46,6 +49,7 @@ const clearStoredProcedures = async () => {
 
 const createStoredProcedures = async () => {
   console.info('Creating stored procedures...');
+
   const storedProcedures = fs.readdirSync('./src/stored_procedures');
 
   await Promise.all(
@@ -61,6 +65,7 @@ const createStoredProcedures = async () => {
 
 const clearFunctions = async () => {
   console.info('Clearing functions...');
+
   const functions: string[] = await knex('information_schema.routines')
     .pluck('ROUTINE_NAME')
     .where({ routine_schema: 'oarebyue_0.3', routine_type: 'FUNCTION' });
@@ -72,6 +77,7 @@ const clearFunctions = async () => {
 
 const createFunctions = async () => {
   console.info('Creating functions...');
+
   const functions = fs.readdirSync('./src/functions');
 
   await Promise.all(
