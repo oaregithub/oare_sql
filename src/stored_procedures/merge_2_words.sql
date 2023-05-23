@@ -1,4 +1,5 @@
 CREATE DEFINER=`oare`@`%` PROCEDURE `merge_2_words`(IN this_uuid CHAR(36), IN that_uuid CHAR(36))
+#TEST
 BEGIN
 DECLARE this_obj_in_text, that_obj_in_text, this_word_on_tablet, that_word_on_tablet INT DEFAULT 0;
 DECLARE this_text_uuid, this_tree_uuid, this_parent_uuid, that_text_uuid, that_tree_uuid, that_parent_uuid CHAR(36) DEFAULT '';
