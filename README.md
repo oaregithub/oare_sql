@@ -30,4 +30,4 @@ When you are ready to commit your changes, click on the "Git" toolbar. There you
 
 Next, simply click the "+" icon to stage all changes. You can also do this individually if desired.
 
-
+Once the changes have been staged, 
