@@ -3,7 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "rm -rf build && tsc",
+    "dev": "ts-node-dev -r tsconfig-paths/register ./src/index.ts --respawn --transpileOnly"
+  },
   "dependencies": {
-    "knex": "^2.4.2"
+    "knex": "^2.4.2",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.3",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.0.4"
   }
 }
