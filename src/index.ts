@@ -11,6 +11,8 @@ const clearTriggers = async () => {
   await Promise.all(
     triggers.map((t) => knex.raw(`DROP TRIGGER IF EXISTS ${t}`))
   );
+
+  console.info(`Cleared ${triggers.length} triggers.`);
 };
 
 const createTriggers = async () => {
@@ -18,9 +20,13 @@ const createTriggers = async () => {
 
   const triggerTypes = fs.readdirSync('./src/triggers');
 
+  let numTriggers = 0;
+
   await Promise.all(
     triggerTypes.map(async (type) => {
       const triggers = fs.readdirSync(`./src/triggers/${type}`);
+
+      numTriggers += triggers.length;
 
       await Promise.all(
         triggers.map(async (trigger) => {
@@ -33,6 +39,8 @@ const createTriggers = async () => {
       );
     })
   );
+
+  console.info(`Created ${numTriggers} triggers.`);
 };
 
 const clearStoredProcedures = async () => {
@@ -45,6 +53,8 @@ const clearStoredProcedures = async () => {
   await Promise.all(
     storedProcedures.map((p) => knex.raw(`DROP PROCEDURE IF EXISTS ${p}`))
   );
+
+  console.info(`Cleared ${storedProcedures.length} stored procedures.`);
 };
 
 const createStoredProcedures = async () => {
@@ -61,6 +71,8 @@ const createStoredProcedures = async () => {
       await knex.raw(procedureSQL);
     })
   );
+
+  console.info(`Created ${storedProcedures.length} stored procedures.`);
 };
 
 const clearFunctions = async () => {
@@ -73,6 +85,8 @@ const clearFunctions = async () => {
   await Promise.all(
     functions.map((f) => knex.raw(`DROP FUNCTION IF EXISTS ${f}`))
   );
+
+  console.info(`Cleared ${functions.length} functions.`);
 };
 
 const createFunctions = async () => {
@@ -86,6 +100,8 @@ const createFunctions = async () => {
       await knex.raw(functionSQL);
     })
   );
+
+  console.info(`Created ${functions.length} functions.`);
 };
 
 const runAll = async () => {
