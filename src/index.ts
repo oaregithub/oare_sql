@@ -18,20 +18,20 @@ const clearTriggers = async () => {
 const createTriggers = async () => {
   console.info('Creating triggers...');
 
-  const triggerTypes = fs.readdirSync('./src/triggers');
+  const triggerTypes = fs.readdirSync('./sql/triggers');
 
   let numTriggers = 0;
 
   await Promise.all(
     triggerTypes.map(async (type) => {
-      const triggers = fs.readdirSync(`./src/triggers/${type}`);
+      const triggers = fs.readdirSync(`./sql/triggers/${type}`);
 
       numTriggers += triggers.length;
 
       await Promise.all(
         triggers.map(async (trigger) => {
           const triggerSQL = fs.readFileSync(
-            `./src/triggers/${type}/${trigger}`,
+            `./sql/triggers/${type}/${trigger}`,
             'utf8'
           );
           await knex.raw(triggerSQL);
@@ -60,12 +60,12 @@ const clearStoredProcedures = async () => {
 const createStoredProcedures = async () => {
   console.info('Creating stored procedures...');
 
-  const storedProcedures = fs.readdirSync('./src/stored_procedures');
+  const storedProcedures = fs.readdirSync('./sql/stored_procedures');
 
   await Promise.all(
     storedProcedures.map(async (p) => {
       const procedureSQL = fs.readFileSync(
-        `./src/stored_procedures/${p}`,
+        `./sql/stored_procedures/${p}`,
         'utf8'
       );
       await knex.raw(procedureSQL);
@@ -92,11 +92,11 @@ const clearFunctions = async () => {
 const createFunctions = async () => {
   console.info('Creating functions...');
 
-  const functions = fs.readdirSync('./src/functions');
+  const functions = fs.readdirSync('./sql/functions');
 
   await Promise.all(
     functions.map(async (f) => {
-      const functionSQL = fs.readFileSync(`./src/functions/${f}`, 'utf8');
+      const functionSQL = fs.readFileSync(`./sql/functions/${f}`, 'utf8');
       await knex.raw(functionSQL);
     })
   );
