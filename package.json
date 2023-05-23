@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "rm -rf build && tsc",
-    "dev": "ts-node-dev -r tsconfig-paths/register ./src/index.ts --respawn --transpileOnly"
+    "dev": "ts-node-dev -r tsconfig-paths/register ./src/index.ts --respawn --transpileOnly",
+    "deploy": "NODE_ENV=production ts-node-dev -r tsconfig-paths/register ./src/index.ts --respawn --transpileOnly"
   },
   "dependencies": {
     "knex": "^2.4.2",
