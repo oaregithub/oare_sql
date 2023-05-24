@@ -174,5 +174,5 @@ CLOSE curLoop;
 ELSE
 	SELECT this_var, original_spelling,this_spelling_uuid;
 END IF;
-    END //
+END //
 DELIMITER ;
