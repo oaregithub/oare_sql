@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `bibliography_properties`(IN this_uuid CHAR(36), this_object_uuid CHAR(36), start_page varchar(250), end_page varchar(250))
+CREATE PROCEDURE `bibliography_properties`(IN this_uuid CHAR(36), this_object_uuid CHAR(36), start_page varchar(250), end_page varchar(250))
 BEGIN
     SET @new_uuid := UUID();
     SET @new_uuid2 := UUID();

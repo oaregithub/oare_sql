@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `bib_props_no_pages`(IN item_uuid CHAR(36), bib_uuid CHAR(36))
+CREATE PROCEDURE `bib_props_no_pages`(IN item_uuid CHAR(36), bib_uuid CHAR(36))
 BEGIN
     SET @new_uuid := UUID();
 

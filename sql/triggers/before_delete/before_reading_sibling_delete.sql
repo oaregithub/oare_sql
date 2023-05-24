@@ -1,3 +1,3 @@
-CREATE DEFINER=`oare`@`%` TRIGGER `before_reading_sibling_delete` BEFORE DELETE ON `reading_sibling` FOR EACH ROW BEGIN
+CREATE TRIGGER `before_reading_sibling_delete` BEFORE DELETE ON `reading_sibling` FOR EACH ROW BEGIN
 
 END

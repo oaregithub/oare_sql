@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `NewFS_PN_w_connect`(IN new_form VARCHAR(250), ref_uuid CHAR(36), new_spelling VARCHAR(250))
+CREATE PROCEDURE `NewFS_PN_w_connect`(IN new_form VARCHAR(250), ref_uuid CHAR(36), new_spelling VARCHAR(250))
 BEGIN
 	
     SET @new_uuid_formA := UUID();

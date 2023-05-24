@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `merge_2_signs_same_word`(IN this_uuid CHAR(36), that_uuid CHAR(36), new_reading VARCHAR(10))
+CREATE PROCEDURE `merge_2_signs_same_word`(IN this_uuid CHAR(36), that_uuid CHAR(36), new_reading VARCHAR(10))
 BEGIN
         
         CALL `text_epigraphy_de_iterate_before_delete`(this_uuid);

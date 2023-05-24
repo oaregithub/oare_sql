@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` FUNCTION `cnfrm_sum`(this_num VARCHAR(64)) RETURNS varchar(15) CHARSET latin1
+CREATE FUNCTION `cnfrm_sum`(this_num VARCHAR(64)) RETURNS varchar(15) CHARSET latin1
 BEGIN
 	DECLARE that_num, fract, cn_sum VARCHAR(36);
     DECLARE tens, ones, fraction DECIMAL;

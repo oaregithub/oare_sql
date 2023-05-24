@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `fix_obj_in_text_iteration_issues`()
+CREATE PROCEDURE `fix_obj_in_text_iteration_issues`()
 BEGIN
         DECLARE done INT DEFAULT FALSE;
 		DECLARE this_uuid, this_text_uuid, this_parent_uuid, previous_uuid, previous_text_uuid, previous_parent_uuid CHAR(36) DEFAULT NULL;

@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `iterate_object_on_tablet_on_delete`(IN this_uuid CHAR(36))
+CREATE PROCEDURE `iterate_object_on_tablet_on_delete`(IN this_uuid CHAR(36))
 BEGIN
         DECLARE this_char_on_line, this_char_on_tablet, this_object_on_tablet INT DEFAULT 0;
 		DECLARE this_text_uuid, this_parent_uuid CHAR(36) DEFAULT '';

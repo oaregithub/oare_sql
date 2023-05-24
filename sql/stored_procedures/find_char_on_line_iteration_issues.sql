@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `find_char_on_line_iteration_issues`()
+CREATE PROCEDURE `find_char_on_line_iteration_issues`()
 BEGIN
         DECLARE done INT DEFAULT FALSE;
 		DECLARE this_uuid, this_text_uuid, this_parent_uuid, previous_parent_uuid CHAR(36) DEFAULT NULL;

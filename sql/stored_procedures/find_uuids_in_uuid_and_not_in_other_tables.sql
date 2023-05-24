@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `find_uuids_in_uuid_and_not_in_other_tables`()
+CREATE PROCEDURE `find_uuids_in_uuid_and_not_in_other_tables`()
 BEGIN
 #EXCLUDES the following tables which lack a uuid column or whose uuids should not appear in uuid.uuid
 #cache_status

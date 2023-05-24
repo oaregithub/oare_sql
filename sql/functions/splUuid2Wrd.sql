@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` FUNCTION `splUuid2Wrd`(spell_uuid CHAR(36)) RETURNS varchar(36) CHARSET utf8mb4 COLLATE utf8mb4_bin
+CREATE FUNCTION `splUuid2Wrd`(spell_uuid CHAR(36)) RETURNS varchar(36) CHARSET utf8mb4 COLLATE utf8mb4_bin
 BEGIN
 	DECLARE wrd1, wrd2 VARCHAR(36);
   

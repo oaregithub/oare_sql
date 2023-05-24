@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `new_bib_w_pdf`(IN zotItemKey CHAR(8), IN link VARCHAR(250), sourceUuid CHAR(36))
+CREATE PROCEDURE `new_bib_w_pdf`(IN zotItemKey CHAR(8), IN link VARCHAR(250), sourceUuid CHAR(36))
 BEGIN
 
 	SET @uuidBib := UUID(); 

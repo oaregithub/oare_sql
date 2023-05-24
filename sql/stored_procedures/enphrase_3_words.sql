@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `enphrase_3_words`(IN this_uuid CHAR(36), IN that_uuid CHAR(36), IN other_uuid CHAR(36))
+CREATE PROCEDURE `enphrase_3_words`(IN this_uuid CHAR(36), IN that_uuid CHAR(36), IN other_uuid CHAR(36))
 BEGIN
        DECLARE this_obj_in_text, that_obj_in_text INT(4) DEFAULT 0;
        DECLARE max_td_id INT(12) DEFAULT 0;

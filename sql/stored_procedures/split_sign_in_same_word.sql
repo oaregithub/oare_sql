@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `split_sign_in_same_word`(IN this_uuid CHAR(36), IN this_reading VARCHAR(15), IN that_reading VARCHAR(15), IN this_reading_type VARCHAR(15))
+CREATE PROCEDURE `split_sign_in_same_word`(IN this_uuid CHAR(36), IN this_reading VARCHAR(15), IN that_reading VARCHAR(15), IN this_reading_type VARCHAR(15))
 BEGIN
 DECLARE this_char_on_line, this_char_on_tablet, this_object_on_tablet, this_side, this_column INT DEFAULT 0;
 DECLARE this_text_uuid, this_tree_uuid, this_parent_uuid, this_reading_uuid, this_sign_uuid, this_discourse_uuid CHAR(36) DEFAULT '';

@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `newFormPN`(IN new_form VARCHAR(250), ref_uuid CHAR(36))
+CREATE PROCEDURE `newFormPN`(IN new_form VARCHAR(250), ref_uuid CHAR(36))
 BEGIN
     SET @new_uuidA := UUID();
     SET @new_uuid := UUID();

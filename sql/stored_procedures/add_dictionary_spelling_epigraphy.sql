@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `add_dictionary_spelling_epigraphy`(IN this_spelling_uuid CHAR(36))
+CREATE PROCEDURE `add_dictionary_spelling_epigraphy`(IN this_spelling_uuid CHAR(36))
 BEGIN
 	#Filter out those with spacesa such as áb ša-ra-ni 
     #should I add support for when there are existing readings? probably easiest to delete and insrt new instead.
