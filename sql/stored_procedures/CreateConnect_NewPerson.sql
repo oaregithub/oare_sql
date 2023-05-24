@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `CreateConnect_NewPerson`(IN PN_Uuid CHAR(36), relation VARCHAR(10), Patro_Uuid CHAR(36), ip_id INT)
+DROP PROCEDURE CreateConnect_NewPerson;
+DELIMITER //
+CREATE PROCEDURE `CreateConnect_NewPerson`(IN PN_Uuid CHAR(36), relation VARCHAR(10), Patro_Uuid CHAR(36), ip_id INT)
 BEGIN
 /* only to be used for unique new person*/
     DECLARE PN VARCHAR(50);
@@ -17,5 +19,5 @@ BEGIN
     UPDATE item_properties SET object_uuid = @new_uuid WHERE id = ip_id;
     SET FOREIGN_KEY_CHECKS=1;
     SET SQL_SAFE_UPDATES=1;
-    
-   END
+   END //
+DELIMITER ;

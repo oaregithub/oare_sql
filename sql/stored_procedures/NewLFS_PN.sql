@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `NewLFS_PN`(IN new_name VARCHAR(250), gender CHAR(1), lang VARCHAR(250), new_form VARCHAR(250), new_spelling VARCHAR(250))
+DROP PROCEDURE `NewLFS_PN`;
+DELIMITER $$
+CREATE PROCEDURE `NewLFS_PN`(IN new_name VARCHAR(250), gender CHAR(1), lang VARCHAR(250), new_form VARCHAR(250), new_spelling VARCHAR(250))
 BEGIN
 	DECLARE lang_uuid CHAR(36);
     SET @new_uuidA := UUID();
@@ -58,4 +60,5 @@ END IF;
     SET FOREIGN_KEY_CHECKS=1;
     SET SQL_SAFE_UPDATES=1;
     
-   END
+   END $$
+DELIMITER ;

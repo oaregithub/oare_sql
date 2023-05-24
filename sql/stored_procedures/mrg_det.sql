@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `mrg_det`(this_td_id VARCHAR(64))
+DROP PROCEDURE mrg_det;
+DELIMITER //
+CREATE PROCEDURE `mrg_det`(this_td_id VARCHAR(64))
 BEGIN
 	DECLARE that_num, this_rdg, new_rdg, new_explicit_spelling, new_form VARCHAR(36);
     DECLARE that_td_id, this_te_id, this_wot, spell_ct INT;
@@ -28,5 +30,5 @@ BEGIN
         ELSE
 			UPDATE text_discourse SET spelling_uuid = NULL, transcription = NULL WHERE id = that_td_id;
         END IF;
-
-  END
+  END //
+DELIMITER ;

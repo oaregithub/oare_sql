@@ -1,3 +1,9 @@
-CREATE DEFINER=`oare`@`%` TRIGGER `before_link_delete` BEFORE DELETE ON `link` FOR EACH ROW BEGIN
+DROP TRIGGER before_link_delete;
+DELIMITER //
+CREATE TRIGGER before_link_delete
+BEFORE DELETE
+ON `link` FOR EACH ROW
+BEGIN
 	
-END
+END //
+DELIMITER ;

@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `newFormPN`(IN new_form VARCHAR(250), ref_uuid CHAR(36))
+DROP PROCEDURE newFormPN;
+DELIMITER //
+CREATE PROCEDURE `newFormPN`(IN new_form VARCHAR(250), ref_uuid CHAR(36))
 BEGIN
     SET @new_uuidA := UUID();
     SET @new_uuid := UUID();
@@ -17,4 +19,5 @@ BEGIN
     (UUID(),@new_uuidA,@new_uuid2,'2','e0092e36-fb94-a4dc-cd04-5883ab861fd6','5844ffb8-86e5-d516-69c3-21df50cce115',NULL,"Accusative"),
     (UUID(),@new_uuidA,@new_uuid2,'2','1c1ea525-b0ad-2ec0-b833-297c7779985c','6b5c796b-cab6-4796-0855-8bd8bbb59597',NULL,"Status Rectus");
     
-   END
+   END //
+   DELIMITER ;

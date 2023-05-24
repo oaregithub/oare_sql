@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `add_properties`(IN this_uuid CHAR(36),IN prop_type INT)
+DROP PROCEDURE `add_properties`;
+DELIMITER $$
+CREATE PROCEDURE `add_properties`(IN this_uuid CHAR(36),IN prop_type INT)
 BEGIN
 	DECLARE OAREAn_SyntAn, PhrFlav_NomPhr, PhrFlav_AmountDes, PhrFlav_SpecDes CHAR(36) DEFAULT NULL;
 	DECLARE exist1, exist3 BOOL DEFAULT FALSE; 
@@ -39,4 +41,5 @@ BEGIN
 			INSERT INTO `item_properties` (`uuid`,`reference_uuid`,`parent_uuid`,`level`,`variable_uuid`,`value_uuid`,`object_uuid`,`value`) VALUES (@new_property_uuid2,this_uuid,@new_property_uuid1,2,"d4e822ea-7804-f9b6-d54f-9cd9aacf9860","3ddfeb4e-bef9-492c-b922-0622e35471b0",NULL,"Specie Description");
 		END IF;
 		END IF;
-   END
+   END $$
+DELIMITER ;

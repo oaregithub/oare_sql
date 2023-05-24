@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `update_discourse_spellings`(IN this_discourse_uuid CHAR(36))
+DROP PROCEDURE `update_discourse_spellings`;
+DELIMITER $$
+CREATE PROCEDURE `update_discourse_spellings`(IN this_discourse_uuid CHAR(36))
 BEGIN
     DECLARE previous_sign_type, previous_sign_reading, sign_type, sign_reading, sign_char_on_tablet, markup_type, previous_markup_type, num_value, last_sign VARCHAR(20) CHARSET utf8mb4 DEFAULT NULL;
 	DECLARE previous_char_on_tablet INT DEFAULT NULL;
@@ -143,4 +145,5 @@ BEGIN
 			END LOOP get_signs;
 		CLOSE spelling_cursor;
 	END IF;
-END
+END $$
+DELIMITER ;

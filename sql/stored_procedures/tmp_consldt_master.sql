@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `tmp_consldt_master`()
+DROP PROCEDURE tmp_consldt_master;
+DELIMITER //
+CREATE PROCEDURE `tmp_consldt_master`()
 BEGIN
 	DECLARE uuidA, uuidB, formA, formB, spellA, spellB CHAR(36) CHARSET utf8mb4 DEFAULT NULL;
 	DECLARE explSpell1, explSpell2 VARCHAR(50) CHARSET utf8mb4 DEFAULT NULL;
@@ -34,4 +36,5 @@ WHILE n2 <= maxid DO
     SET n2 := n2+2;
 END WHILE;
 
-END
+END //
+DELIMITER ;

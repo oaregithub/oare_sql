@@ -1,5 +1,7 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `text_epigraphy_iterate_line`(IN this_text_uuid CHAR(36), IN this_line decimal(5,2))
-BEGIN
+DROP PROCEDURE text_epigraphy_iterate_line;
+DELIMITER //
+CREATE PROCEDURE text_epigraphy_iterate_line(IN this_text_uuid CHAR(36), IN this_line decimal(5,2))
+	BEGIN
         DECLARE done INT DEFAULT FALSE;
 		DECLARE that_uuid CHAR(36);
 		DECLARE that_parent_uuid CHAR(36);
@@ -22,4 +24,5 @@ BEGIN
 
 		END LOOP;
 		CLOSE cur1;
-    END
+    END //
+DELIMITER ;

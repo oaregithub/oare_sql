@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `insert_spell_in_dict`(
+DROP PROCEDURE insert_spell_in_dict;
+DELIMITER //
+CREATE PROCEDURE `insert_spell_in_dict`(
 	IN form_uuid CHAR(36), 
     IN this_explicit_spelling VARCHAR(250))
 BEGIN
@@ -15,4 +17,5 @@ BEGIN
         INSERT INTO dictionary_spelling (`uuid`,`reference_uuid`,`explicit_spelling`,`mash`) 
         VALUES (@uuid,form_uuid,this_explicit_spelling, mash);
     END IF;
-END
+END //
+DELIMITER ;

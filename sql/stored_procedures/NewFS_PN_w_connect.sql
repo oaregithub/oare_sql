@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `NewFS_PN_w_connect`(IN new_form VARCHAR(250), ref_uuid CHAR(36), new_spelling VARCHAR(250))
+DROP PROCEDURE NewFS_PN_w_connect;
+DELIMITER //
+CREATE PROCEDURE `NewFS_PN_w_connect`(IN new_form VARCHAR(250), ref_uuid CHAR(36), new_spelling VARCHAR(250))
 BEGIN
 	
     SET @new_uuid_formA := UUID();
@@ -28,4 +30,5 @@ BEGIN
     SET FOREIGN_KEY_CHECKS=1;
     SET SQL_SAFE_UPDATES=1;
     
-   END
+   END //
+   DELIMITER ;

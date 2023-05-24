@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `CnctExprs2Person_w_Names_w_A_tdUuid`( IN PN_Uuid CHAR(36), IN rel VARCHAR(10), IN Patro_Uuid CHAR(36), IN PN_td_uuid CHAR(36))
+DROP PROCEDURE CnctExprs2Person_w_Names_w_A_tdUuid;
+DELIMITER //
+CREATE PROCEDURE `CnctExprs2Person_w_Names_w_A_tdUuid`( IN PN_Uuid CHAR(36), IN rel VARCHAR(10), IN Patro_Uuid CHAR(36), IN PN_td_uuid CHAR(36))
 BEGIN
     DECLARE p_uuid, td_uuid CHAR(36);
     SET @new_uuid := UUID();
@@ -11,4 +13,5 @@ BEGIN
 	(@new_uuid,td_uuid,NULL,NULL,"859939fd-bdf6-fa7b-fa93-3f42207e1005","b3040ef6-7fc3-44b5-942d-a46d7e1c1241",NULL,"Prosopographic Analysis"),
 	(@new_uuid2,td_uuid,@new_uuid,'1','f5853716-9280-4120-aa22-1799ce946b64',NULL,p_uuid,NULL);
     
-   END
+END //
+DELIMITER ;

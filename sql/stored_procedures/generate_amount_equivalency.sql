@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `generate_amount_equivalency`(IN this_uuid CHAR(36))
+DROP PROCEDURE generate_amount_equivalency;
+DELIMITER $$
+CREATE PROCEDURE `generate_amount_equivalency`(IN this_uuid CHAR(36))
 BEGIN
 DECLARE finished, low, high, this_bool, this_parent_obj_in_text, layer1, highest, this_highest_child, that_highest_child, no_number, no_word INT DEFAULT 0;
 DECLARE total, temp_num, subtract DECIMAL(15,5) DEFAULT 0;
@@ -108,4 +110,5 @@ ELSEIF (child_type = "word") THEN
 END IF;
 END LOOP getChildren;
 CLOSE curChildren;
-END
+END $$
+DELIMITER ;

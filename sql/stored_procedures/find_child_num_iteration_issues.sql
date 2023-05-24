@@ -1,5 +1,7 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `find_child_num_iteration_issues`()
-BEGIN
+DROP PROCEDURE `find_child_num_iteration_issues`;
+DELIMITER //
+CREATE PROCEDURE find_child_num_iteration_issues() 
+	BEGIN
         DECLARE done INT DEFAULT FALSE;
 		DECLARE this_uuid, this_text_uuid, this_parent_uuid, previous_parent_uuid CHAR(36) DEFAULT NULL;
 		DECLARE this_type VARCHAR(250);
@@ -26,4 +28,5 @@ BEGIN
         SET previous_parent_uuid = this_parent_uuid;
 		END LOOP;
 		CLOSE cur1;
-    END
+    END //
+DELIMITER ;

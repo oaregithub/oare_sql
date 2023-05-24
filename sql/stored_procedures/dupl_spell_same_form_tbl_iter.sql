@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `dupl_spell_same_form_tbl_iter`()
+DROP PROCEDURE dupl_spell_same_form_tbl_iter;
+DELIMITER //
+CREATE PROCEDURE `dupl_spell_same_form_tbl_iter`()
 BEGIN
   DECLARE this_explicit_spelling VARCHAR(25) CHARACTER SET utf8mb4 DEFAULT '';
   DECLARE this_count INT(2) DEFAULT 0;
@@ -29,4 +31,5 @@ BEGIN
 	SET i = i+1;
     SET i2 = 0;
   END WHILE;
-END
+END //
+DELIMITER ;

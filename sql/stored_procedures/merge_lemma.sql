@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `merge_lemma`(IN old_lemma CHAR(36), IN new_lemma CHAR(36))
+DROP PROCEDURE `merge_lemma`;
+DELIMITER $$
+CREATE PROCEDURE `merge_lemma`(IN old_lemma CHAR(36), IN new_lemma CHAR(36))
 BEGIN
 	DECLARE this_type VARCHAR(15) DEFAULT '';
     DECLARE that_hertel_parent, that_special_classification, that_primary_classification CHAR(36) DEFAULT NULL;
@@ -29,4 +31,5 @@ BEGIN
 	UPDATE dictionary_form SET reference_uuid = new_lemma WHERE reference_uuid = CONVERT(old_lemma USING latin1) COLLATE latin1_swedish_ci;
 		
 	SET FOREIGN_KEY_CHECKS = 1;
-   END
+   END $$
+DELIMITER ;	

@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `bibliography_properties`(IN this_uuid CHAR(36), this_object_uuid CHAR(36), start_page varchar(250), end_page varchar(250))
+DROP PROCEDURE `bibliography_properties`;
+DELIMITER $$
+CREATE PROCEDURE `bibliography_properties`(IN this_uuid CHAR(36), this_object_uuid CHAR(36), start_page varchar(250), end_page varchar(250))
 BEGIN
     SET @new_uuid := UUID();
     SET @new_uuid2 := UUID();
@@ -19,4 +21,5 @@ ELSE
     (UUID(),this_uuid,@new_uuid2,'2','b3b2fe05-173b-11ec-8b77-024de1c1cc1d',NULL,NULL,start_page),
     (UUID(),this_uuid,@new_uuid3,'2','b3b2fe05-173b-11ec-8b77-024de1c1cc1d',NULL,NULL,end_page);
 END IF;
-   END
+   END $$
+DELIMITER ;

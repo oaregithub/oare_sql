@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `new_bib_w_pdf`(IN zotItemKey CHAR(8), IN link VARCHAR(250), sourceUuid CHAR(36))
+DROP PROCEDURE new_bib_w_pdf;
+DELIMITER //
+CREATE PROCEDURE `new_bib_w_pdf`(IN zotItemKey CHAR(8), IN link VARCHAR(250), sourceUuid CHAR(36))
 BEGIN
 
 	SET @uuidBib := UUID(); 
@@ -14,4 +16,5 @@ BEGIN
 	INSERT INTO link (`uuid`,`reference_uuid`,`obj_uuid`) VALUES
 		(@uuidLink, @uuidBib, @uuidRes);
 
-	END
+	END //
+	DELIMITER ;

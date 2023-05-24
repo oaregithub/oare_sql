@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `merge_form`(IN old_form CHAR(36), IN new_form CHAR(36))
+DROP PROCEDURE `merge_form`;
+DELIMITER $$
+CREATE PROCEDURE `merge_form`(IN old_form CHAR(36), IN new_form CHAR(36))
 BEGIN
     DECLARE this_spelling_uuid, that_spelling_uuid, this_reference_uuid CHAR(36) DEFAULT NULL;
     DECLARE finished INTEGER DEFAULT 0;
@@ -37,4 +39,5 @@ BEGIN
 	UPDATE dictionary_spelling SET reference_uuid = new_form WHERE reference_uuid = CONVERT(old_form USING latin1) COLLATE latin1_swedish_ci;
 	SET FOREIGN_KEY_CHECKS = 1;
 	
-   END
+   END $$
+DELIMITER ;	

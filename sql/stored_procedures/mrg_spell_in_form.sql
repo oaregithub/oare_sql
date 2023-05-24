@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `mrg_spell_in_form`(IN this_uuid CHAR(36), that_uuid CHAR(36))
+DROP PROCEDURE mrg_spell_in_form;
+DELIMITER //
+CREATE PROCEDURE `mrg_spell_in_form`(IN this_uuid CHAR(36), that_uuid CHAR(36))
 BEGIN
 		DECLARE this_ct, that_ct INT(6) DEFAULT 0;
         
@@ -16,5 +18,5 @@ BEGIN
         END IF;
 		
 		SET SQL_SAFE_UPDATES=1;
-
-    END
+    END //
+DELIMITER ;

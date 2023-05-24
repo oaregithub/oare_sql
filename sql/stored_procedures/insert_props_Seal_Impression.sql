@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `insert_props_Seal_Impression`(IN refUuid CHAR(36))
+DROP PROCEDURE insert_props_Seal_Impression;
+DELIMITER //
+CREATE PROCEDURE `insert_props_Seal_Impression`(IN refUuid CHAR(36))
 BEGIN	
     SET @parentUuid := UUID();
 
@@ -10,4 +12,5 @@ INSERT INTO item_properties (`uuid`,`reference_uuid`,`parent_uuid`,`level`,`vari
 VALUES (UUID(), refUuid, @parentUuid, '1', 'f32e6903-67c9-41d8-840a-d933b8b3e719');
 INSERT INTO item_properties (`uuid`,`reference_uuid`,`parent_uuid`,`level`,`variable_uuid`)
 VALUES (UUID(), refUuid, @parentUuid, '1', 'c643e195-6d0b-11ec-bcc3-0282f921eac9');
-   END
+   END //
+   DELIMITER ;

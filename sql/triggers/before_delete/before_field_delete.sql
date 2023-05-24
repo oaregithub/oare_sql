@@ -1,3 +1,9 @@
-CREATE DEFINER=`oare`@`%` TRIGGER `before_field_delete` BEFORE DELETE ON `field` FOR EACH ROW BEGIN
+DROP TRIGGER before_field_delete;
+DELIMITER //
+CREATE TRIGGER before_field_delete
+BEFORE DELETE
+ON `field` FOR EACH ROW
+BEGIN
 	
-END
+END //
+DELIMITER ;

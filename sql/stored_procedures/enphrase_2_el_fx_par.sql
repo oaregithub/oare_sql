@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `enphrase_2_el_fx_par`(IN this_uuid CHAR(36), IN that_uuid CHAR(36), IN par_uuid CHAR(36))
+DROP PROCEDURE enphrase_2_el_fx_par;
+DELIMITER //
+CREATE PROCEDURE `enphrase_2_el_fx_par`(IN this_uuid CHAR(36), IN that_uuid CHAR(36), IN par_uuid CHAR(36))
 BEGIN
        DECLARE this_obj_in_text, that_obj_in_text, max_td_id, this_child_num INT DEFAULT 0;
 	   DECLARE this_parent_uuid, that_parent_uuid, this_text_uuid, that_text_uuid, this_tree_uuid, that_tree_uuid, new_phrase_uuid CHAR(36) DEFAULT '';
@@ -29,4 +31,5 @@ BEGIN
 		UPDATE text_discourse SET parent_uuid = @new_phrase_uuid, child_num = '2' WHERE uuid = CONVERT(that_uuid USING latin1) COLLATE latin1_swedish_ci;
         UPDATE text_discourse SET child_num = child_num-1 WHERE child_num > this_child_num AND parent_uuid = this_parent_uuid;
 	END IF;
-   END
+   END //
+DELIMITER ;

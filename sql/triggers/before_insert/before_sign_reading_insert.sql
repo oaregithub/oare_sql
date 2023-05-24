@@ -1,3 +1,9 @@
-CREATE DEFINER=`oare`@`%` TRIGGER `before_sign_reading_insert` BEFORE INSERT ON `sign_reading` FOR EACH ROW BEGIN
+DROP TRIGGER before_sign_reading_insert;
+DELIMITER //
+CREATE TRIGGER before_sign_reading_insert
+BEFORE INSERT
+ON `sign_reading` FOR EACH ROW
+BEGIN
 	INSERT INTO uuid (uuid, table_reference) VALUES (`new`.uuid, "sign_reading");
-END
+END //
+DELIMITER ;

@@ -1,5 +1,7 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `find_iteration_errors`()
-BEGIN
+DROP PROCEDURE `find_iteration_errors`;
+DELIMITER //
+CREATE PROCEDURE find_iteration_errors() 
+	BEGIN
 		CREATE TEMPORARY TABLE IF NOT EXISTS temp_result_table (
 			uuid CHAR(36),
 			text_uuid CHAR(36),
@@ -19,4 +21,5 @@ BEGIN
 		CALL find_char_on_line_iteration_issues(); 
         SELECT * FROM temp_result_table;
         DROP TABLE temp_result_table;
-    END
+    END //
+DELIMITER ;
