@@ -1,3 +1,5 @@
+DROP PROCEDURE enphrase_3_words;
+DELIMITER //
 CREATE PROCEDURE `enphrase_3_words`(IN this_uuid CHAR(36), IN that_uuid CHAR(36), IN other_uuid CHAR(36))
 BEGIN
        DECLARE this_obj_in_text, that_obj_in_text INT(4) DEFAULT 0;
@@ -39,4 +41,5 @@ BEGIN
 	/*
 	END IF;
     */
-   END
+   END //
+   DELIMITER ;

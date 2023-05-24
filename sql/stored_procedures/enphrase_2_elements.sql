@@ -1,3 +1,5 @@
+DROP PROCEDURE enphrase_2_elements;
+DELIMITER //
 CREATE PROCEDURE `enphrase_2_elements`(IN this_uuid CHAR(36), IN that_uuid CHAR(36))
 BEGIN
        DECLARE this_obj_in_text, that_obj_in_text, max_td_id, this_child_num INT DEFAULT 0;
@@ -28,4 +30,5 @@ BEGIN
         UPDATE text_discourse SET parent_uuid = @new_phrase_uuid, child_num = '1' WHERE uuid = CONVERT(this_uuid USING latin1) COLLATE latin1_swedish_ci;
 		UPDATE text_discourse SET parent_uuid = @new_phrase_uuid, child_num = '2' WHERE uuid = CONVERT(that_uuid USING latin1) COLLATE latin1_swedish_ci;
 	END IF;
-   END
+   END //
+   DELIMITER ;

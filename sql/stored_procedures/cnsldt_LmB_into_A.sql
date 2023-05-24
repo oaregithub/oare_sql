@@ -1,3 +1,5 @@
+DROP PROCEDURE cnsldt_LmB_into_A;
+DELIMITER //
 CREATE PROCEDURE `cnsldt_LmB_into_A`(uuidA CHAR(36), uuidB CHAR(36))
 BEGIN
 	DECLARE wordA, wordB, newWord VARCHAR(25) CHARSET utf8mb4 DEFAULT NULL;
@@ -12,4 +14,5 @@ UPDATE dictionary_word SET word = newWord WHERE uuid = uuidA;
 DELETE FROM dictionary_word WHERE uuid = uuidB;
 SET FOREIGN_KEY_CHECKS = 1;
 SET SQL_SAFE_UPDATES = 1;
-END
+END //
+DELIMITER ;

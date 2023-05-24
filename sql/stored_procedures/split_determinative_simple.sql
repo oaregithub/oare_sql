@@ -1,3 +1,5 @@
+DROP PROCEDURE split_determinative_simple;
+DELIMITER //
 CREATE PROCEDURE `split_determinative_simple`(IN that_td_id INT, IN this_te_id INT, IN this_df_uuid CHAR(36), 
 	this_explicit_spell VARCHAR(60), that_explicit_spell VARCHAR(60), that_spell_uuid CHAR(36))
 BEGIN
@@ -35,4 +37,5 @@ BEGIN
 			UPDATE text_epigraphy SET discourse_uuid = @prep_uuid WHERE id = this_te_id;
 		SET SQL_SAFE_UPDATES=1;
 		SET FOREIGN_KEY_CHECKS=1;
-   END
+   END //
+   DELIMITER ;

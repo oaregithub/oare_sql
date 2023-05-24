@@ -1,3 +1,5 @@
+DROP PROCEDURE merge_2_persons;
+DELIMITER //
 CREATE PROCEDURE `merge_2_persons`(IN old_person CHAR(36), IN new_person CHAR(36))
 m2p: BEGIN
 	DECLARE old_type, new_type, oldRelation, newRelation VARCHAR(25) DEFAULT '';
@@ -40,4 +42,5 @@ m2p: BEGIN
 	DELETE FROM hierarchy WHERE object_uuid = CONVERT(old_person USING latin1) COLLATE latin1_swedish_ci;
     DELETE FROM person WHERE uuid = CONVERT(old_person USING latin1) COLLATE latin1_swedish_ci;
 	SET FOREIGN_KEY_CHECKS = 1;
-   END
+   END //
+   DELIMITER ;

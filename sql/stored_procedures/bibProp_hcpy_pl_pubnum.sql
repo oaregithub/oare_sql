@@ -1,3 +1,5 @@
+DROP PROCEDURE bibProp_hcpy_pl_pubnum;
+DELIMITER //
 CREATE PROCEDURE `bibProp_hcpy_pl_pubnum`(IN ref_uuid CHAR(36), bib_uuid CHAR(36), start_plate varchar(250), end_plate varchar(250), pubnum varchar(250))
 BEGIN
     SET @new_uuid := UUID();
@@ -19,5 +21,5 @@ IF (pubnum != 'NULL') THEN
 	INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,level,variable_uuid,value_uuid,object_uuid,value) VALUES 
     (UUID(),ref_uuid,@new_uuid2,'2','5d771785-b1fe-11ec-bcc3-0282f921eac9',NULL,NULL,pubnum);
 END IF;
-
-   END
+END //
+DELIMITER ;

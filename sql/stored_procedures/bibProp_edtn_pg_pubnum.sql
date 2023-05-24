@@ -1,3 +1,5 @@
+DROP PROCEDURE bibProp_edtn_pg_pubnum;
+DELIMITER //
 CREATE PROCEDURE `bibProp_edtn_pg_pubnum`(IN ref_uuid CHAR(36), bib_uuid CHAR(36), start_pg varchar(250), end_pg varchar(250), pubnum varchar(250))
 BEGIN
     SET @new_uuid := UUID();
@@ -20,4 +22,5 @@ IF (pubnum != 'NULL') THEN
     (UUID(),ref_uuid,@new_uuid2,'2','5d771785-b1fe-11ec-bcc3-0282f921eac9',NULL,NULL,pubnum);
 END IF;
 
-   END
+END // 
+DELIMITER ;

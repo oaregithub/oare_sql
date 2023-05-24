@@ -1,3 +1,5 @@
+DROP PROCEDURE merge_2_lemmas;
+DELIMITER //
 CREATE PROCEDURE `merge_2_lemmas`(IN old_lemma CHAR(36), IN new_lemma CHAR(36))
 BEGIN
 	DECLARE this_type VARCHAR(15) DEFAULT '';
@@ -99,4 +101,5 @@ BEGIN
 		WHERE uuid = CONVERT(old_lemma USING latin1) COLLATE latin1_swedish_ci;
         
 	SET FOREIGN_KEY_CHECKS = 1;
-   END
+   END //
+   DELIMITER ;

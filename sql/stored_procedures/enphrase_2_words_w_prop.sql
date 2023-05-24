@@ -1,3 +1,5 @@
+DROP PROCEDURE enphrase_2_words_w_prop;
+DELIMITER //
 DROP PROCEDURE `enphrase_2_words_w_prop`;
 DELIMITER $$
 CREATE PROCEDURE `enphrase_2_words_w_prop`(IN this_uuid CHAR(36), IN that_uuid CHAR(36), IN prop_type INT)
