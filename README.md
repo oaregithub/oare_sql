@@ -30,4 +30,16 @@ When you are ready to commit your changes, click on the "Git" toolbar. There you
 
 Next, simply click the "+" icon to stage all changes. You can also do this individually if desired.
 
-Once the changes have been staged, 
+Once the changes have been staged, simply type a commit message into the box at the top of the "Git" toolbar. This can be anything, but should generally be a brief description of any changes you made.
+
+Finally, press the "Commit & Push" button. This will commit your changes and "push" them to GitHub. The badge on the toolbar will disappear, indicating that there are no uncommitted changes.
+
+## Deploying to Production
+
+Changes made to this repository are automatically deployed to the production MySQL database. However, only changes made to the `main` branch are automatically deployed. Generally speaking, you won't need to use other branches, so this won't be a problem. However, if you do use branches in the future, remember to merge the branch into `main` in order for the changes to be deployed.
+
+As noted above, make sure that all changes are made in the correct folders as this is used to determine how to best deploy changes to production.
+
+Deployment usually takes less than one minute. If desired, you can watch the progress of the updates by clicking on the "Actions" tab on GitHub and selecting the currently running actions. When all steps have completed, you can know that the changes were pushed to production successfully.
+
+**NOTE: ** This repository should be considered the "source-of-truth" for all changes. Any changes made elsewhere will not automatically appear here and will be overwritten by this repo once changes are made here. As such, be sure to make all changes here.
