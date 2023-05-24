@@ -3,7 +3,7 @@ DELIMITER //
 CREATE PROCEDURE fix_object_on_tablet_issues()
 	BEGIN
         DECLARE done INT DEFAULT FALSE;
-		DECLARE this_uuid, this_text_uuid, this_parent_uuid, this_discourse_uuid, previous_uuid, previous_text_uuid, this_parent CHAR(36) DEFAULT NULL;
+		DECLARE this_uuid, this_text_uuid, this_parent_uuid, this_discourse_uuid, previous_uuid, previous_text_uuid, previous_parent_uuid, previous_discourse_uuid, this_parent CHAR(36) DEFAULT NULL;
 		DECLARE this_type CHAR(250);
         DECLARE this_object_on_tablet, this_char_on_tablet, this_char_on_line INT DEFAULT 0;
         DECLARE this_order_num, this_min, this_max, previous_min, previous_max, temp DECIMAL(7,3) DEFAULT NULL;
@@ -75,6 +75,8 @@ CREATE PROCEDURE fix_object_on_tablet_issues()
        END LOOP;
 		CLOSE cur1;
 		CALL fix_object_on_tablet_issues_supplement;
+-- 		SELECT * FROM temp_result_table WHERE text_uuid = "099fae97-3e91-fdfb-9e82-4a912c1c901c" ORDER BY text_uuid,min,char_on_line,order_num;
+--      SELECT * FROM temp_result_table ORDER BY text_uuid,order_num;
 		DROP TABLE temp_result_table;
     END //
 DELIMITER ;

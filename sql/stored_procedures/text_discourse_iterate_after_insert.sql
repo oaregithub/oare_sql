@@ -1,5 +1,7 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `text_discourse_iterate_after_insert`(IN this_uuid CHAR(36))
-BEGIN
+DROP PROCEDURE text_discourse_iterate_after_insert;
+DELIMITER //
+CREATE PROCEDURE text_discourse_iterate_after_insert(IN this_uuid CHAR(36))
+	BEGIN
 		DECLARE this_child_num, this_word_on_tablet, this_obj_in_text INT DEFAULT 0;
 		DECLARE this_text_uuid, this_parent_uuid CHAR(36) DEFAULT '';
 
@@ -14,4 +16,5 @@ BEGIN
 		END IF;
         UPDATE text_discourse SET child_num = (child_num+1) WHERE parent_uuid = CONVERT(this_parent_uuid USING latin1) COLLATE latin1_swedish_ci AND child_num >= (this_child_num+1)  ORDER BY obj_in_text ASC;
 		UPDATE text_discourse SET obj_in_text = (obj_in_text+1) WHERE text_uuid = CONVERT(this_text_uuid USING latin1) COLLATE latin1_swedish_ci AND obj_in_text >= (this_obj_in_text+1) ORDER BY obj_in_text ASC;
-    END
+    END //
+DELIMITER ;

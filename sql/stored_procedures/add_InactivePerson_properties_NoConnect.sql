@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `add_InactivePerson_properties_NoConnect`(IN this_uuid CHAR(36))
+CREATE PROCEDURE `add_InactivePerson_properties_NoConnect`(IN this_uuid CHAR(36))
 BEGIN
 
 	SET @new_property_uuid := UUID();

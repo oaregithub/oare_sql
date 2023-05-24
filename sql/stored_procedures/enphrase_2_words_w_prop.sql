@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `enphrase_2_words_w_prop`(IN this_uuid CHAR(36), IN that_uuid CHAR(36), IN prop_type INT)
+DROP PROCEDURE `enphrase_2_words_w_prop`;
+DELIMITER $$
+CREATE PROCEDURE `enphrase_2_words_w_prop`(IN this_uuid CHAR(36), IN that_uuid CHAR(36), IN prop_type INT)
 BEGIN
        DECLARE this_obj_in_text, that_obj_in_text, max_td_id, this_child_num INT DEFAULT 0;
 	   DECLARE this_parent_uuid, that_parent_uuid, this_text_uuid, that_text_uuid, this_tree_uuid, that_tree_uuid, new_phrase_uuid CHAR(36) DEFAULT '';
@@ -45,4 +47,5 @@ BEGIN
 			END IF;
 		END IF;
 	END IF;
-   END
+   END $$
+DELIMITER ;

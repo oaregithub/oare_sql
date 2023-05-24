@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` FUNCTION `word_case`(spell_uuid CHAR(36), this_case VARCHAR(36)) RETURNS tinyint(1)
+CREATE FUNCTION `word_case`(spell_uuid CHAR(36), this_case VARCHAR(36)) RETURNS tinyint(1)
 BEGIN
 	DECLARE wrd_case1, wrd_case2 VARCHAR(36);
     DECLARE flag BOOL DEFAULT FALSE;

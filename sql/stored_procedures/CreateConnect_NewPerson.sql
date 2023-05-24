@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `CreateConnect_NewPerson`(IN PN_Uuid CHAR(36), relation VARCHAR(10), Patro_Uuid CHAR(36), ip_id INT)
+CREATE PROCEDURE `CreateConnect_NewPerson`(IN PN_Uuid CHAR(36), relation VARCHAR(10), Patro_Uuid CHAR(36), ip_id INT)
 BEGIN
 /* only to be used for unique new person*/
     DECLARE PN VARCHAR(50);

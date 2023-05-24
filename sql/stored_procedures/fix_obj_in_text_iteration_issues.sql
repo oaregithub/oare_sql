@@ -1,5 +1,7 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `fix_obj_in_text_iteration_issues`()
-BEGIN
+DROP PROCEDURE `fix_obj_in_text_iteration_issues`;
+DELIMITER //
+CREATE PROCEDURE fix_obj_in_text_iteration_issues()
+	BEGIN
         DECLARE done INT DEFAULT FALSE;
 		DECLARE this_uuid, this_text_uuid, this_parent_uuid, previous_uuid, previous_text_uuid, previous_parent_uuid CHAR(36) DEFAULT NULL;
 		DECLARE this_type VARCHAR(250);
@@ -10,6 +12,12 @@ BEGIN
 			LEFT JOIN (SELECT *, MIN(object_on_tablet) AS min FROM text_epigraphy WHERE discourse_uuid IS NOT NULL GROUP BY discourse_uuid ORDER BY text_uuid, object_on_tablet) AS te
 				ON te.discourse_uuid = td1.uuid
 			ORDER BY text_uuid, obj_in_text;
+-- 		DECLARE cur1 CURSOR FOR 
+-- 			SELECT td1.uuid, td1.text_uuid, td1.parent_uuid, td1.`type`, td1.obj_in_text, te.min, td1.word_on_tablet, td1.child_num FROM text_discourse as td1
+-- 			LEFT JOIN (SELECT *, MIN(object_on_tablet) AS min FROM text_epigraphy WHERE discourse_uuid IS NOT NULL GROUP BY discourse_uuid ORDER BY text_uuid, object_on_tablet) AS te
+-- 				ON te.discourse_uuid = td1.uuid
+-- 			WHERE td1.text_uuid = "00101ab2-74d0-4fd5-b893-47af2f2518f8"
+-- 			ORDER BY text_uuid, obj_in_text;
 		DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
         
 		CREATE TEMPORARY TABLE IF NOT EXISTS temp_result_table (
@@ -42,7 +50,7 @@ BEGIN
         END LOOP;
 		CLOSE cur1;
 		CALL fix_obj_in_text_iteration_issues_supplement;
---  		SELECT * FROM temp_result_table ORDER BY text_uuid, order_num;
-SELECT * FROM temp_result_table ORDER BY text_uuid, order_num;
+ 		-- SELECT * FROM temp_result_table ORDER BY text_uuid, order_num;
 		DROP TABLE temp_result_table;
-    END
+    END //
+DELIMITER ;

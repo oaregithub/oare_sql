@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `split_first_sign_off`(IN this_uuid CHAR(36))
+DROP PROCEDURE `split_first_sign_off`;
+DELIMITER $$
+CREATE PROCEDURE `split_first_sign_off`(IN this_uuid CHAR(36))
 BEGIN
 		DECLARE this_obj_in_text, this_child_num, this_word_on_tablet, this_te_id INT DEFAULT 0;
 		DECLARE this_spell_uuid, new_spell_uuid, this_text_uuid, this_tree_uuid, this_parent_uuid, sign_to_split, this_reading_uuid, this_sign_uuid, that_reading_uuid CHAR(36) DEFAULT '';
@@ -42,4 +44,5 @@ BEGIN
 			CALL update_discourse_transcription(@new_uuid);
 			CALL update_discourse_spellings(this_uuid);
 			CALL update_discourse_transcription(this_uuid);
-   END
+   END $$
+DELIMITER ;

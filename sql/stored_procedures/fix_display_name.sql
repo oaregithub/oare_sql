@@ -1,6 +1,7 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `fix_display_name`(IN this_uuid CHAR(36))
+DROP PROCEDURE fix_display_name;
+DELIMITER //
+CREATE PROCEDURE fix_display_name (IN this_uuid CHAR(36))
 BEGIN
-
 DECLARE this_excavation_prfx, this_excavation_no, this_publication_prfx, this_publication_no, this_museum_prfx, this_museum_no, this_name, this_display_name VARCHAR(255);
 DECLARE that_parent_uuid CHAR(36);
 DECLARE that_line decimal(5,2);
@@ -41,4 +42,5 @@ END IF;
 IF (this_display_name != @display_name) THEN
 	 UPDATE `text` SET display_name = @display_name WHERE uuid = CONVERT(this_uuid USING latin1) COLLATE latin1_swedish_ci;
 END IF;
-END
+END //
+DELIMITER ;

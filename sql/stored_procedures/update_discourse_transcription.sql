@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `update_discourse_transcription`(IN this_discourse_uuid CHAR(36))
+DROP PROCEDURE `update_discourse_transcription`;
+DELIMITER $$
+CREATE PROCEDURE `update_discourse_transcription`(IN this_discourse_uuid CHAR(36))
 BEGIN
         DECLARE new_spell_uuid, possible_spelling_uuid CHAR(36) DEFAULT NULL;
 		DECLARE old_transcription, new_transcription, new_type, new_explicit_spelling VARCHAR(250) CHARSET utf8mb4 DEFAULT '';
@@ -24,5 +26,8 @@ BEGIN
 		END IF;
         IF (new_spelling_count = 1) THEN
 			UPDATE text_discourse SET spelling_uuid = possible_spelling_uuid, transcription = new_transcription WHERE uuid = CONVERT(this_discourse_uuid USING latin1) COLLATE latin1_swedish_ci; 
-		END IF;
-END
+		ELSE 
+			UPDATE text_discourse SET spelling_uuid = NULL, transcription = NULL WHERE uuid = CONVERT(this_discourse_uuid USING latin1) COLLATE latin1_swedish_ci; 
+        END IF;
+END $$
+DELIMITER ;

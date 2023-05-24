@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `deleteWord`(IN del_uuid CHAR(36))
+DROP PROCEDURE `deleteWord`;
+DELIMITER $$
+CREATE PROCEDURE `deleteWord`(IN del_uuid CHAR(36))
 BEGIN
 	
     SET FOREIGN_KEY_CHECKS=0;
@@ -15,4 +17,5 @@ BEGIN
     
 	SET FOREIGN_KEY_CHECKS=1;
 
-   END
+   END $$
+DELIMITER ;

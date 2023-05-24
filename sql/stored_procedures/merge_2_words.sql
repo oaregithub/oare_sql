@@ -1,4 +1,6 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `merge_2_words`(IN this_uuid CHAR(36), IN that_uuid CHAR(36))
+DROP PROCEDURE `merge_2_words`;
+DELIMITER $$
+CREATE PROCEDURE `merge_2_words`(IN this_uuid CHAR(36), IN that_uuid CHAR(36))
 BEGIN
 DECLARE this_obj_in_text, that_obj_in_text, this_word_on_tablet, that_word_on_tablet INT DEFAULT 0;
 DECLARE this_text_uuid, this_tree_uuid, this_parent_uuid, that_text_uuid, that_tree_uuid, that_parent_uuid CHAR(36) DEFAULT '';
@@ -31,4 +33,5 @@ DECLARE this_type, that_type, this_explicit_spelling, that_explicit_spelling VAR
             CALL `text_discourse_iterate_on_delete`(that_uuid);
             DELETE FROM text_discourse WHERE uuid = CONVERT(that_uuid USING latin1) COLLATE latin1_swedish_ci; 
         END IF;
-END
+END $$
+DELIMITER ;

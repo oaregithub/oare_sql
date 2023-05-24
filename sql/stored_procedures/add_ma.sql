@@ -1,3 +1,5 @@
+DROP PROCEDURE `add_ma`;
+DELIMITER $$
 CREATE PROCEDURE `add_ma`(IN form_uuid CHAR(36))
 BEGIN
 	DECLARE parent_uuid, parent_uuid2 CHAR(36) DEFAULT NULL;
@@ -19,4 +21,5 @@ BEGIN
 		SET FOREIGN_KEY_CHECKS = 1;
     END IF;
     SET FOREIGN_KEY_CHECKS = 1;
-   END
+   END $$
+DELIMITER ;
