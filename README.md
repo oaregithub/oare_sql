@@ -46,6 +46,8 @@ Once the changes have been staged, simply type a commit message into the box at 
 
 Finally, press the "Commit & Push" button. This will commit your changes and "push" them to GitHub. The badge on the toolbar will disappear, indicating that there are no uncommitted changes.
 
+![](./readme_imgs/commit_and_push.png)
+
 ## Deploying to Production
 
 Changes made to this repository are automatically deployed to the production MySQL database. However, only changes made to the `main` branch are automatically deployed. Generally speaking, you won't need to use other branches, so this won't be a problem. However, if you do use branches in the future, remember to merge the branch into `main` in order for the changes to be deployed.
