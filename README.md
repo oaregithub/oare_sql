@@ -18,9 +18,15 @@ When adding new files, editing existing ones, or deleting files, make sure to do
 
 ## Making Changes
 
+#### Via Command Line
+
 Of course, as with any git repository, changes can be made in any code editor by cloning the project and using `git` operations to push changes to GitHub. I haven't included instructions on how to do that here, but feel free to ask if needed.
 
+#### Via GitHub
+
 For those that don't work with `git` often, changes can also be made directly within GitHub. You can navigate to any file, click the "Edit" button, and make changes as necessary, or even copy in entirely new contents. Simply commit the changes to the `main` branch and everything will be updated. However, these edits are limited to one file per commit. This isn't a big deal, but could potentially be annoying.
+
+#### Via VS Code Online
 
 Perhaps the easiest way to make bulk edits is to use the web-version of VS Code that is built directly into GitHub. From the repository home page, you can simply press the `.` key on your keyboard and an interactive online version of VS Code will appear with the repository opened for you.
 
