@@ -1,4 +1,9 @@
-CREATE DEFINER=`oare`@`%` TRIGGER `before_text_update` BEFORE UPDATE ON `text` FOR EACH ROW BEGIN
+DROP TRIGGER before_text_update;
+DELIMITER //
+CREATE TRIGGER before_text_update
+BEFORE UPDATE
+ON `text` FOR EACH ROW
+BEGIN
 SET @display_name := '';
 IF (NEW.excavation_prfx REGEXP ('Kt')) THEN
 	SET @display_name := CONCAT(NEW.excavation_prfx, ' ', NEW.excavation_no);
@@ -42,4 +47,5 @@ ELSEIF ((NEW.display_name IS NULL) AND (@display_name IS NOT NULL)) THEN
 	SET NEW.display_name = @display_name;
 END IF;
 INSERT INTO `logging`(`type`, `time`, `reference_table`, `uuid`, `object_values`) VALUES ("UPDATE",SYSDATE(),"text",`old`.`uuid`,concat("type¦",COALESCE(`old`.`type`,'NULL'),"¦language¦",COALESCE(`old`.`language`,'NULL'),"¦cdli_num¦",COALESCE(`old`.`cdli_num`,'NULL'),"¦translit_status¦",COALESCE(`old`.`translit_status`,'NULL')));
-END
+END //
+DELIMITER ;

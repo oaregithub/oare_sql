@@ -1,8 +1,8 @@
-DROP TRIGGER before_spatial_unit_delete;
+DROP TRIGGER before_asset_delete;
 DELIMITER //
-CREATE TRIGGER before_spatial_unit_delete
+CREATE TRIGGER before_asset_delete
 BEFORE DELETE
-ON `spatial_unit` FOR EACH ROW
+ON `asset` FOR EACH ROW
 BEGIN
 	SET FOREIGN_KEY_CHECKS=0;
 	DELETE FROM item_properties WHERE item_properties.reference_uuid = `old`.uuid;

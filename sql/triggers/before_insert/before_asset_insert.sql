@@ -1,3 +1,9 @@
-CREATE DEFINER=`oare`@`%` TRIGGER `before_asset_insert` BEFORE INSERT ON `asset` FOR EACH ROW BEGIN
+DROP TRIGGER before_asset_insert;
+DELIMITER //
+CREATE TRIGGER before_asset_insert
+BEFORE INSERT
+ON `asset` FOR EACH ROW
+BEGIN
 	INSERT INTO uuid (uuid, table_reference) VALUES (`new`.uuid, "asset");
-END
+END //
+DELIMITER ;

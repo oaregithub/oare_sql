@@ -1,3 +1,9 @@
-CREATE DEFINER=`oare`@`%` TRIGGER `before_value_insert` BEFORE INSERT ON `value` FOR EACH ROW BEGIN
+DROP TRIGGER before_value_insert;
+DELIMITER //
+CREATE TRIGGER before_value_insert
+BEFORE INSERT
+ON `value` FOR EACH ROW
+BEGIN
 	INSERT INTO uuid (uuid, table_reference) VALUES (`new`.uuid, "value");
-END
+END //
+DELIMITER ;

@@ -1,4 +1,9 @@
-CREATE DEFINER=`oare`@`%` TRIGGER `before_text_epigraphy_update` BEFORE UPDATE ON `text_epigraphy` FOR EACH ROW BEGIN
+DROP TRIGGER before_text_epigraphy_update;
+DELIMITER //
+CREATE TRIGGER before_text_epigraphy_update
+BEFORE UPDATE
+ON `text_epigraphy` FOR EACH ROW
+BEGIN
 	IF NOT(NEW.reading <=> OLD.reading) THEN
 		IF NEW.`type` = 'sign' OR NEW.`type` = 'number' OR NEW.`type` = 'separator' THEN
 			IF NEW.reading IS NULL THEN
@@ -137,4 +142,6 @@ CREATE DEFINER=`oare`@`%` TRIGGER `before_text_epigraphy_update` BEFORE UPDATE O
 -- 		SET NEW.line = (SELECT line FROM text_epigraphy WHERE parent_uuid = NEW.uuid);
 --     END IF;
     INSERT INTO `logging`(`type`, `time`, `reference_table`, `uuid`, `object_values`) VALUES ("UPDATE",SYSDATE(),"text_epigraphy",`old`.`uuid`,concat("type¦",COALESCE(`old`.`type`,'NULL'),"¦text_uuid¦",COALESCE(`old`.`text_uuid`,'NULL'),"¦tree_uuid¦",COALESCE(`old`.`tree_uuid`,'NULL'),"¦parent_uuid¦",COALESCE(`old`.`parent_uuid`,'NULL'),"¦side¦",COALESCE(`old`.`side`,'NULL'),"¦column¦",COALESCE(`old`.`column`,'NULL'),"¦line¦",COALESCE(`old`.`line`,'NULL'),"¦char_on_line¦",COALESCE(`old`.`char_on_line`,'NULL'),"¦char_on_tablet¦",COALESCE(`old`.`char_on_tablet`,'NULL'),"¦sign_uuid¦",COALESCE(`old`.`sign_uuid`,'NULL'),"¦sign¦",COALESCE(`old`.`sign`,'NULL'),"¦reading_uuid¦",COALESCE(`old`.`reading_uuid`,'NULL'),"¦reading¦",COALESCE(`old`.`reading`,'NULL'),"¦discourse_uuid¦",COALESCE(`old`.`discourse_uuid`,'NULL')));
-END
+END 
+//
+DELIMITER ;
