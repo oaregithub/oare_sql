@@ -33,4 +33,12 @@ const knexConfig = (): Knex.Config => ({
  */
 const knexInstance = knex(knexConfig());
 
-export default knexInstance;
+const createTransaction = async (
+  cb: (trx: Knex.Transaction) => Promise<void>
+): Promise<void> => {
+  await knexInstance.transaction(async (trx) => {
+    await cb(trx);
+  });
+};
+
+export default createTransaction;
