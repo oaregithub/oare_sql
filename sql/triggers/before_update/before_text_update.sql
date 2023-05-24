@@ -1,4 +1,4 @@
-CREATE TRIGGER `before_text_update` BEFORE UPDATE ON `text` FOR EACH ROW BEGIN
+CREATE DEFINER=`oare`@`%` TRIGGER `before_text_update` BEFORE UPDATE ON `text` FOR EACH ROW BEGIN
 SET @display_name := '';
 IF (NEW.excavation_prfx REGEXP ('Kt')) THEN
 	SET @display_name := CONCAT(NEW.excavation_prfx, ' ', NEW.excavation_no);

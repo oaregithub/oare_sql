@@ -1,4 +1,4 @@
-CREATE PROCEDURE `merge_2_lemmas`(IN old_lemma CHAR(36), IN new_lemma CHAR(36))
+CREATE DEFINER=`oare`@`%` PROCEDURE `merge_2_lemmas`(IN old_lemma CHAR(36), IN new_lemma CHAR(36))
 BEGIN
 	DECLARE this_type VARCHAR(15) DEFAULT '';
     DECLARE that_hertel_parent, that_special_classification, that_primary_classification CHAR(36) DEFAULT NULL;

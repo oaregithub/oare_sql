@@ -1,4 +1,4 @@
-CREATE PROCEDURE `insert_spell_in_dict`(
+CREATE DEFINER=`oare`@`%` PROCEDURE `insert_spell_in_dict`(
 	IN form_uuid CHAR(36), 
     IN this_explicit_spelling VARCHAR(250))
 BEGIN

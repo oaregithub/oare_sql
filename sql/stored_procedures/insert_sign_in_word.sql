@@ -1,4 +1,4 @@
-CREATE PROCEDURE `insert_sign_in_word`(IN this_discourse_uuid CHAR(36), IN this_reading VARCHAR(250), IN sign_pos INT)
+CREATE DEFINER=`oare`@`%` PROCEDURE `insert_sign_in_word`(IN this_discourse_uuid CHAR(36), IN this_reading VARCHAR(250), IN sign_pos INT)
 BEGIN
     DECLARE min_chot, min_chol, min_objot, max_objot, this_side, this_column, this_line INT DEFAULT 0;
     DECLARE this_text_uuid,this_tree_uuid,this_parent_uuid, that_uuid CHAR(36) DEFAULT '';

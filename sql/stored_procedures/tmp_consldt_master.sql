@@ -1,4 +1,4 @@
-CREATE PROCEDURE `tmp_consldt_master`()
+CREATE DEFINER=`oare`@`%` PROCEDURE `tmp_consldt_master`()
 BEGIN
 	DECLARE uuidA, uuidB, formA, formB, spellA, spellB CHAR(36) CHARSET utf8mb4 DEFAULT NULL;
 	DECLARE explSpell1, explSpell2 VARCHAR(50) CHARSET utf8mb4 DEFAULT NULL;

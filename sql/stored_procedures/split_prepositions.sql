@@ -1,4 +1,4 @@
-CREATE PROCEDURE `split_prepositions`(IN this_id INT)
+CREATE DEFINER=`oare`@`%` PROCEDURE `split_prepositions`(IN this_id INT)
 BEGIN
 	   DECLARE ct1 INT DEFAULT 4;
        DECLARE ct2, max1, max2, prep_object_on_tablet, exist_obj_in_text, exist_child_num, exist_word_on_tablet INT DEFAULT 0;

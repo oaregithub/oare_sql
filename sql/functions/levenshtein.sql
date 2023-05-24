@@ -1,4 +1,4 @@
-CREATE FUNCTION `levenshtein`( s1 VARCHAR(255), s2 VARCHAR(255) ) RETURNS int
+CREATE DEFINER=`oare`@`%` FUNCTION `levenshtein`( s1 VARCHAR(255), s2 VARCHAR(255) ) RETURNS int
     DETERMINISTIC
 BEGIN
     DECLARE s1_len, s2_len, i, j, c, c_temp, cost INT;

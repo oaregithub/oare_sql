@@ -1,4 +1,4 @@
-CREATE PROCEDURE `update_discourse_transcription`(IN this_discourse_uuid CHAR(36))
+CREATE DEFINER=`oare`@`%` PROCEDURE `update_discourse_transcription`(IN this_discourse_uuid CHAR(36))
 BEGIN
         DECLARE new_spell_uuid, possible_spelling_uuid CHAR(36) DEFAULT NULL;
 		DECLARE old_transcription, new_transcription, new_type, new_explicit_spelling VARCHAR(250) CHARSET utf8mb4 DEFAULT '';

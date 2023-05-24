@@ -1,4 +1,4 @@
-CREATE PROCEDURE `iterate_word_on_tablet_after_insert`(IN this_uuid CHAR(36))
+CREATE DEFINER=`oare`@`%` PROCEDURE `iterate_word_on_tablet_after_insert`(IN this_uuid CHAR(36))
 BEGIN
 		DECLARE this_child_num, this_word_on_tablet, this_obj_in_text INT DEFAULT 0;
 		DECLARE this_text_uuid, this_parent_uuid CHAR(36) DEFAULT '';

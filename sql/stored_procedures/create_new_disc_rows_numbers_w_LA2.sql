@@ -1,4 +1,4 @@
-CREATE PROCEDURE `create_new_disc_rows_numbers_w_LA2`()
+CREATE DEFINER=`oare`@`%` PROCEDURE `create_new_disc_rows_numbers_w_LA2`()
 BEGIN
 		DECLARE txtUuid, discUuid, treeUuid, parentUuid, prevWordDiscUuid, spellUuid, spellingUuid CHAR(36) CHARSET utf8mb4 DEFAULT NULL;
         DECLARE signType, wordType, thisTranscr VARCHAR(15) CHARSET utf8mb4 DEFAULT NULL;

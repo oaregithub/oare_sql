@@ -1,4 +1,4 @@
-CREATE TRIGGER `before_text_insert` BEFORE INSERT ON `text` FOR EACH ROW BEGIN
+CREATE DEFINER=`oare`@`%` TRIGGER `before_text_insert` BEFORE INSERT ON `text` FOR EACH ROW BEGIN
 INSERT INTO uuid (uuid, table_reference) VALUES (`new`.uuid, "text");
 SET @display_name := '';
 IF (NEW.excavation_prfx REGEXP ('Kt')) THEN

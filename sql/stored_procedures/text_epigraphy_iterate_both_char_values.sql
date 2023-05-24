@@ -1,4 +1,4 @@
-CREATE PROCEDURE `text_epigraphy_iterate_both_char_values`(IN this_text_uuid CHAR(36), IN this_parent_uuid CHAR(36), IN this_char_on_tablet INT(4), IN this_char_on_line INT(2))
+CREATE DEFINER=`oare`@`%` PROCEDURE `text_epigraphy_iterate_both_char_values`(IN this_text_uuid CHAR(36), IN this_parent_uuid CHAR(36), IN this_char_on_tablet INT(4), IN this_char_on_line INT(2))
 BEGIN
 		SET @charOnTablet:=this_char_on_tablet;
 		SET @charOnLine:=this_char_on_line;

@@ -1,4 +1,4 @@
-CREATE PROCEDURE `mrg_det`(this_td_id VARCHAR(64))
+CREATE DEFINER=`oare`@`%` PROCEDURE `mrg_det`(this_td_id VARCHAR(64))
 BEGIN
 	DECLARE that_num, this_rdg, new_rdg, new_explicit_spelling, new_form VARCHAR(36);
     DECLARE that_td_id, this_te_id, this_wot, spell_ct INT;

@@ -1,4 +1,4 @@
-CREATE PROCEDURE `bibProp_hcpy_pl_pubnum`(IN ref_uuid CHAR(36), bib_uuid CHAR(36), start_plate varchar(250), end_plate varchar(250), pubnum varchar(250))
+CREATE DEFINER=`oare`@`%` PROCEDURE `bibProp_hcpy_pl_pubnum`(IN ref_uuid CHAR(36), bib_uuid CHAR(36), start_plate varchar(250), end_plate varchar(250), pubnum varchar(250))
 BEGIN
     SET @new_uuid := UUID();
     SET @new_uuid2 := UUID();

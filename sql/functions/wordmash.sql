@@ -1,4 +1,4 @@
-CREATE FUNCTION `wordmash`(word VARCHAR(56)) RETURNS varchar(56) CHARSET utf8mb4 COLLATE utf8mb4_bin
+CREATE DEFINER=`oare`@`%` FUNCTION `wordmash`(word VARCHAR(56)) RETURNS varchar(56) CHARSET utf8mb4 COLLATE utf8mb4_bin
 BEGIN 
 	DECLARE mash VARCHAR(56);
     SET mash = REPLACE(word, "-", "");

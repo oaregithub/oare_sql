@@ -1,4 +1,4 @@
-CREATE PROCEDURE `split_prepositions2`(IN that_td_id INT, IN this_te_id INT, IN that_df_uuid CHAR(36), 
+CREATE DEFINER=`oare`@`%` PROCEDURE `split_prepositions2`(IN that_td_id INT, IN this_te_id INT, IN that_df_uuid CHAR(36), 
 	this_explicit_spell VARCHAR(60), that_explicit_spell VARCHAR(60), that_spell_uuid CHAR(36))
 BEGIN
         

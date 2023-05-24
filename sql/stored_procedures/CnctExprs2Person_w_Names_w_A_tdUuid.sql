@@ -1,4 +1,4 @@
-CREATE PROCEDURE `CnctExprs2Person_w_Names_w_A_tdUuid`( IN PN_Uuid CHAR(36), IN rel VARCHAR(10), IN Patro_Uuid CHAR(36), IN PN_td_uuid CHAR(36))
+CREATE DEFINER=`oare`@`%` PROCEDURE `CnctExprs2Person_w_Names_w_A_tdUuid`( IN PN_Uuid CHAR(36), IN rel VARCHAR(10), IN Patro_Uuid CHAR(36), IN PN_td_uuid CHAR(36))
 BEGIN
     DECLARE p_uuid, td_uuid CHAR(36);
     SET @new_uuid := UUID();

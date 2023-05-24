@@ -1,4 +1,4 @@
-CREATE PROCEDURE `cnsldt_LmB_into_A`(uuidA CHAR(36), uuidB CHAR(36))
+CREATE DEFINER=`oare`@`%` PROCEDURE `cnsldt_LmB_into_A`(uuidA CHAR(36), uuidB CHAR(36))
 BEGIN
 	DECLARE wordA, wordB, newWord VARCHAR(25) CHARSET utf8mb4 DEFAULT NULL;
 SET SQL_SAFE_UPDATES = 0;

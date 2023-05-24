@@ -1,4 +1,4 @@
-CREATE PROCEDURE `add_properties`(IN this_uuid CHAR(36),IN prop_type INT)
+CREATE DEFINER=`oare`@`%` PROCEDURE `add_properties`(IN this_uuid CHAR(36),IN prop_type INT)
 BEGIN
 	DECLARE OAREAn_SyntAn, PhrFlav_NomPhr, PhrFlav_AmountDes, PhrFlav_SpecDes CHAR(36) DEFAULT NULL;
 	DECLARE exist1, exist3 BOOL DEFAULT FALSE; 

@@ -1,4 +1,4 @@
-CREATE PROCEDURE `update_spelling_and_transcription_for_procedures`(IN this_spelling_uuid CHAR(36))
+CREATE DEFINER=`oare`@`%` PROCEDURE `update_spelling_and_transcription_for_procedures`(IN this_spelling_uuid CHAR(36))
 BEGIN
 	DECLARE this_uuid CHAR(36) DEFAULT NULL;
 	DECLARE finished INTEGER DEFAULT 0;

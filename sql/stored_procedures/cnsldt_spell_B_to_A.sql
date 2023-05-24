@@ -1,4 +1,4 @@
-CREATE PROCEDURE `cnsldt_spell_B_to_A`(uuidA CHAR(36), uuidB CHAR(36))
+CREATE DEFINER=`oare`@`%` PROCEDURE `cnsldt_spell_B_to_A`(uuidA CHAR(36), uuidB CHAR(36))
 BEGIN
 SET SQL_SAFE_UPDATES=0;
 SET FOREIGN_KEY_CHECKS = 0;

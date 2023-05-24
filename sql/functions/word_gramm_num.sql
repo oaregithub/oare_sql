@@ -1,4 +1,4 @@
-CREATE FUNCTION `word_gramm_num`(spell_uuid CHAR(36), this_num VARCHAR(36)) RETURNS tinyint(1)
+CREATE DEFINER=`oare`@`%` FUNCTION `word_gramm_num`(spell_uuid CHAR(36), this_num VARCHAR(36)) RETURNS tinyint(1)
 BEGIN
 	DECLARE wrd_num VARCHAR(36);
     DECLARE flag BOOL DEFAULT FALSE;

@@ -1,4 +1,4 @@
-CREATE FUNCTION `word_type`(spell_uuid VARCHAR(36)) RETURNS varchar(36) CHARSET latin1
+CREATE DEFINER=`oare`@`%` FUNCTION `word_type`(spell_uuid VARCHAR(36)) RETURNS varchar(36) CHARSET latin1
 BEGIN
 	DECLARE wrd_type1, wrd_type2 VARCHAR(36);
   

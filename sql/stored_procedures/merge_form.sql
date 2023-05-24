@@ -1,4 +1,4 @@
-CREATE PROCEDURE `merge_form`(IN old_form CHAR(36), IN new_form CHAR(36))
+CREATE DEFINER=`oare`@`%` PROCEDURE `merge_form`(IN old_form CHAR(36), IN new_form CHAR(36))
 BEGIN
     DECLARE this_spelling_uuid, that_spelling_uuid, this_reference_uuid CHAR(36) DEFAULT NULL;
     DECLARE finished INTEGER DEFAULT 0;

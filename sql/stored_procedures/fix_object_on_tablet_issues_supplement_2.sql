@@ -1,4 +1,4 @@
-CREATE PROCEDURE `fix_object_on_tablet_issues_supplement_2`()
+CREATE DEFINER=`oare`@`%` PROCEDURE `fix_object_on_tablet_issues_supplement_2`()
 BEGIN
         DECLARE done INT DEFAULT FALSE;
 		DECLARE this_uuid, this_text_uuid, this_parent_uuid, this_discourse_uuid CHAR(36) DEFAULT NULL;
