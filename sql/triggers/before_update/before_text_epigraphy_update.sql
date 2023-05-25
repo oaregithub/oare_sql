@@ -1,4 +1,7 @@
-CREATE DEFINER=`oare`@`%` TRIGGER `before_text_epigraphy_update` BEFORE UPDATE ON `text_epigraphy` FOR EACH ROW BEGIN
+CREATE TRIGGER before_text_epigraphy_update
+BEFORE UPDATE
+ON `text_epigraphy` FOR EACH ROW
+BEGIN
 	IF NOT(NEW.reading <=> OLD.reading) THEN
 		IF NEW.`type` = 'sign' OR NEW.`type` = 'number' OR NEW.`type` = 'separator' THEN
 			IF NEW.reading IS NULL THEN

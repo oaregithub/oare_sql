@@ -1,5 +1,5 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `find_object_on_tablet_iteration_issues`()
-BEGIN
+CREATE PROCEDURE `find_object_on_tablet_iteration_issues`() 
+	BEGIN
         DECLARE done INT DEFAULT FALSE;
 		DECLARE this_uuid, this_text_uuid, this_parent_uuid, previous_text_uuid CHAR(36) DEFAULT NULL;
 		DECLARE this_type VARCHAR(250);

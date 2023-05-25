@@ -1,5 +1,5 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `find_iteration_errors`()
-BEGIN
+CREATE PROCEDURE `find_iteration_errors`() 
+	BEGIN
 		CREATE TEMPORARY TABLE IF NOT EXISTS temp_result_table (
 			uuid CHAR(36),
 			text_uuid CHAR(36),

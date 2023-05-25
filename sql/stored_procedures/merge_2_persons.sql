@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `merge_2_persons`(IN old_person CHAR(36), IN new_person CHAR(36))
+CREATE PROCEDURE `merge_2_persons`(IN old_person CHAR(36), IN new_person CHAR(36))
 m2p: BEGIN
 	DECLARE old_type, new_type, oldRelation, newRelation VARCHAR(25) DEFAULT '';
     DECLARE oldPNuuid, newPNuuid, oldRelationPNuuid, newRelationPNuuid CHAR(36) DEFAULT NULL;

@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `find_text_discourse_gaps`()
+CREATE PROCEDURE `find_text_discourse_gaps`()
 BEGIN
         DECLARE done INT DEFAULT FALSE;
 		DECLARE this_uuid, this_text_uuid, this_parent_uuid, previous_text_uuid CHAR(36) DEFAULT NULL;

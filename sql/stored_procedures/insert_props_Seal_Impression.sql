@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `insert_props_Seal_Impression`(IN refUuid CHAR(36))
+CREATE PROCEDURE `insert_props_Seal_Impression`(IN refUuid CHAR(36))
 BEGIN	
     SET @parentUuid := UUID();
 

@@ -1,5 +1,5 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `iterate_obj_in_text_before_insert`(IN this_uuid CHAR(36))
-BEGIN
+CREATE PROCEDURE `iterate_obj_in_text_before_insert`(IN this_uuid CHAR(36))
+	BEGIN
 		DECLARE this_child_num, this_word_on_tablet, this_obj_in_text INT DEFAULT 0;
 		DECLARE this_text_uuid, this_parent_uuid CHAR(36) DEFAULT '';
 

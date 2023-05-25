@@ -1,6 +1,5 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `fix_display_name`(IN this_uuid CHAR(36))
+CREATE PROCEDURE `fix_display_name` (IN this_uuid CHAR(36))
 BEGIN
-
 DECLARE this_excavation_prfx, this_excavation_no, this_publication_prfx, this_publication_no, this_museum_prfx, this_museum_no, this_name, this_display_name VARCHAR(255);
 DECLARE that_parent_uuid CHAR(36);
 DECLARE that_line decimal(5,2);

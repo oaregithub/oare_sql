@@ -1,5 +1,5 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `find_obj_in_text_iteration_issues`()
-BEGIN
+CREATE PROCEDURE `find_obj_in_text_iteration_issues`() 
+	BEGIN
         DECLARE done INT DEFAULT FALSE;
 		DECLARE this_uuid, this_text_uuid, this_parent_uuid, previous_text_uuid CHAR(36) DEFAULT NULL;
 		DECLARE this_type VARCHAR(250);
@@ -19,7 +19,6 @@ BEGIN
             END IF;
             IF (this_obj_in_text != previous_oit+1) THEN
 				INSERT INTO temp_result_table (uuid,text_uuid,parent_uuid,`type`,objectOnTabletORobjInText,charOnTabletORwordOnTablet,charOnLineORchildNum,previous,affected_column) VALUES (this_uuid, this_text_uuid, this_parent_uuid, this_type, this_obj_in_text, this_word_on_tablet, this_child_num, previous_oit, "obj_in_text");
-               --  SELECT this_uuid, this_text_uuid, this_obj_in_text, previous_oit;
 			END IF;
 		SET previous_oit = this_obj_in_text;
         SET previous_text_uuid = this_text_uuid;

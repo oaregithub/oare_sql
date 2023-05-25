@@ -1,4 +1,7 @@
-CREATE DEFINER=`oare`@`%` TRIGGER `before_text_epigraphy_insert` BEFORE INSERT ON `text_epigraphy` FOR EACH ROW BEGIN
+CREATE TRIGGER before_text_epigraphy_insert
+BEFORE INSERT
+ON `text_epigraphy` FOR EACH ROW
+BEGIN
    INSERT INTO uuid (uuid, table_reference) VALUES (`new`.uuid, "text_epigraphy");
     IF NEW.reading <=> 'DELETE' THEN
         SET NEW.reading_uuid = NULL;

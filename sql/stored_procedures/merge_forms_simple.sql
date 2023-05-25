@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `merge_forms_simple`(IN old_form CHAR(36), IN new_form CHAR(36))
+CREATE PROCEDURE `merge_forms_simple`(IN old_form CHAR(36), IN new_form CHAR(36))
 BEGIN
 	
     SET FOREIGN_KEY_CHECKS = 0;

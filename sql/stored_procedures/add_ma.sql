@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `add_ma`(IN form_uuid CHAR(36))
+CREATE PROCEDURE `add_ma`(IN form_uuid CHAR(36))
 BEGIN
 	DECLARE parent_uuid, parent_uuid2 CHAR(36) DEFAULT NULL;
     SET FOREIGN_KEY_CHECKS = 0;

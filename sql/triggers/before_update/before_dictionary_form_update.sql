@@ -1,4 +1,7 @@
-CREATE DEFINER=`oare`@`%` TRIGGER `before_dictionary_form_update` BEFORE UPDATE ON `dictionary_form` FOR EACH ROW BEGIN
+CREATE TRIGGER before_dictionary_form_update
+BEFORE UPDATE
+ON `dictionary_form` FOR EACH ROW
+BEGIN
 	IF NOT(NEW.form <=> OLD.form) THEN
     	UPDATE text_discourse SET transcription = NEW.form WHERE spelling_uuid IN (SELECT uuid FROM dictionary_spelling WHERE parent_uuid = NEW.uuid);
     END IF;

@@ -1,5 +1,5 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `split_sign_in_same_word`(IN this_uuid CHAR(36), IN this_reading VARCHAR(15), IN that_reading VARCHAR(15), IN this_reading_type VARCHAR(15))
-BEGIN
+CREATE PROCEDURE `split_sign_in_same_word`(IN this_uuid CHAR(36), IN this_reading VARCHAR(15), IN that_reading VARCHAR(15), IN this_reading_type VARCHAR(15))
+    BEGIN
 DECLARE this_char_on_line, this_char_on_tablet, this_object_on_tablet, this_side, this_column INT DEFAULT 0;
 DECLARE this_text_uuid, this_tree_uuid, this_parent_uuid, this_reading_uuid, this_sign_uuid, this_discourse_uuid CHAR(36) DEFAULT '';
 DECLARE this_line DECIMAL(5,2) DEFAULT NULL;
@@ -20,8 +20,6 @@ DECLARE this_type, this_sign VARCHAR(250) DEFAULT '';
         SELECT `name` INTO this_sign FROM sign WHERE uuid IN (SELECT reference_uuid FROM sign_reading WHERE uuid = this_reading_uuid);
 		SELECT reference_uuid INTO this_sign_uuid FROM sign_reading WHERE uuid = this_reading_uuid;
 		SELECT discourse_uuid INTO this_discourse_uuid FROM text_epigraphy WHERE uuid = this_uuid;
-
-
 
 CALL text_epigraphy_iterate_after_insert(this_uuid);
 

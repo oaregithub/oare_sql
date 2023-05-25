@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `lemma_POS_properties`(IN this_uuid CHAR(36), pos_uuid CHAR(36), pos varchar(250))
+CREATE PROCEDURE `lemma_POS_properties`(IN this_uuid CHAR(36), pos_uuid CHAR(36), pos varchar(250))
 BEGIN
     SET @new_uuid := UUID();
     SET @new_uuid2 := UUID();

@@ -1,4 +1,4 @@
-CREATE DEFINER=`oare`@`%` PROCEDURE `newPN`(IN new_name VARCHAR(250), gender CHAR(1), lang VARCHAR(250))
+CREATE PROCEDURE `newPN`(IN new_name VARCHAR(250), gender CHAR(1), lang VARCHAR(250))
 BEGIN
 	DECLARE lang_uuid CHAR(36);
     SET @new_uuidA := UUID();
@@ -31,4 +31,4 @@ IF (lang != 'NULL') THEN
 	(UUID(),@new_uuidA,@new_uuid,'1','4b9577f1-fc26-4a22-bfa3-7fba017f7a0e',lang_uuid,NULL,lang);
 END IF;
 
-   END
+   END   
