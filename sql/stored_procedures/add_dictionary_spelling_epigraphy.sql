@@ -169,7 +169,5 @@ END IF;
     END IF;
 END LOOP getLoop;
 CLOSE curLoop;
-ELSE
-	SELECT this_var, original_spelling,this_spelling_uuid;
 END IF;
 END
