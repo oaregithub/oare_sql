@@ -65,9 +65,9 @@ CREATE PROCEDURE `find_uuids_in_uuid_and_not_in_other_tables`()
 		IF ((SELECT uuid FROM uuid WHERE table_reference = "group_edit_permissions" AND uuid NOT IN (SELECT uuid FROM `group_edit_permissions`) LIMIT 1) IS NOT NULL) THEN
 			SELECT uuid, table_reference FROM uuid WHERE table_reference = "group_edit_permissions" AND uuid NOT IN (SELECT uuid FROM `group_edit_permissions`);
 		END IF;
-		IF ((SELECT uuid FROM uuid WHERE table_reference = "hierarchy" AND uuid NOT IN (SELECT uuid FROM `hierarchy`) LIMIT 1) IS NOT NULL) THEN
-			SELECT uuid, table_reference FROM uuid WHERE table_reference = "hierarchy" AND uuid NOT IN (SELECT uuid FROM `hierarchy`);
-		END IF;
+		IF ((SELECT uuid, table_reference FROM uuid WHERE table_reference = "hierarchy" AND uuid NOT IN (SELECT uuid FROM `hierarchy`) AND (uuid NOT IN (SELECT object_uuid FROM `hierarchy`)) LIMIT 1) IS NOT NULL) THEN
+			SELECT uuid, table_reference FROM uuid WHERE table_reference = "hierarchy" AND uuid NOT IN (SELECT uuid FROM `hierarchy`) AND (uuid NOT IN (SELECT object_uuid FROM `hierarchy`));
+        END IF;
 		IF ((SELECT uuid FROM uuid WHERE table_reference = "item_properties" AND uuid NOT IN (SELECT uuid FROM `item_properties`) LIMIT 1) IS NOT NULL) THEN
 			SELECT uuid, table_reference FROM uuid WHERE table_reference = "item_properties" AND uuid NOT IN (SELECT uuid FROM `item_properties`);
 		END IF;
