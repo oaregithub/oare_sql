@@ -14,6 +14,15 @@ CREATE PROCEDURE `find_uuids_in_uuid_and_not_in_other_tables`()
 	#temp_theo
 	#user_group
 	#word_sort
+	#comments
+	#errors
+	#group_allowlist
+	#group_edit_permissions
+	#public_denylist
+	#reset_password_links
+	#text_drafts
+	#threads
+	#unique_spellings
 		IF ((SELECT uuid FROM uuid WHERE table_reference = "alias" AND uuid NOT IN (SELECT uuid FROM `alias`) LIMIT 1) IS NOT NULL) THEN
 			SELECT uuid, table_reference FROM uuid WHERE table_reference = "alias" AND uuid NOT IN (SELECT uuid FROM `alias`);
 		END IF;
@@ -28,9 +37,6 @@ CREATE PROCEDURE `find_uuids_in_uuid_and_not_in_other_tables`()
 		END IF;
 		IF ((SELECT uuid FROM uuid WHERE table_reference = "collection" AND uuid NOT IN (SELECT uuid FROM `collection`) LIMIT 1) IS NOT NULL) THEN
 			SELECT uuid, table_reference FROM uuid WHERE table_reference = "collection" AND uuid NOT IN (SELECT uuid FROM `collection`);
-		END IF;
-		IF ((SELECT uuid FROM uuid WHERE table_reference = "comments" AND uuid NOT IN (SELECT uuid FROM `comments`) LIMIT 1) IS NOT NULL) THEN
-			SELECT uuid, table_reference FROM uuid WHERE table_reference = "comments" AND uuid NOT IN (SELECT uuid FROM `comments`);
 		END IF;
 		IF ((SELECT uuid FROM uuid WHERE table_reference = "concept" AND uuid NOT IN (SELECT uuid FROM `concept`) LIMIT 1) IS NOT NULL) THEN
 			SELECT uuid, table_reference FROM uuid WHERE table_reference = "concept" AND uuid NOT IN (SELECT uuid FROM `concept`);
@@ -50,20 +56,11 @@ CREATE PROCEDURE `find_uuids_in_uuid_and_not_in_other_tables`()
 		IF ((SELECT uuid FROM uuid WHERE table_reference = "editor_credit" AND uuid NOT IN (SELECT uuid FROM `editor_credit`) LIMIT 1) IS NOT NULL) THEN
 			SELECT uuid, table_reference FROM uuid WHERE table_reference = "editor_credit" AND uuid NOT IN (SELECT uuid FROM `editor_credit`);
 		END IF;
-		IF ((SELECT uuid FROM uuid WHERE table_reference = "errors" AND uuid NOT IN (SELECT uuid FROM `errors`) LIMIT 1) IS NOT NULL) THEN
-			SELECT uuid, table_reference FROM uuid WHERE table_reference = "errors" AND uuid NOT IN (SELECT uuid FROM `errors`);
-		END IF;
 		IF ((SELECT uuid FROM uuid WHERE table_reference = "event" AND uuid NOT IN (SELECT uuid FROM `event`) LIMIT 1) IS NOT NULL) THEN
 			SELECT uuid, table_reference FROM uuid WHERE table_reference = "event" AND uuid NOT IN (SELECT uuid FROM `event`);
 		END IF;
 		IF ((SELECT uuid FROM uuid WHERE table_reference = "field" AND uuid NOT IN (SELECT uuid FROM `field`) LIMIT 1) IS NOT NULL) THEN
 			SELECT uuid, table_reference FROM uuid WHERE table_reference = "field" AND uuid NOT IN (SELECT uuid FROM `field`);
-		END IF;
-		IF ((SELECT uuid FROM uuid WHERE table_reference = "group_allowlist" AND uuid NOT IN (SELECT uuid FROM `group_allowlist`) LIMIT 1) IS NOT NULL) THEN
-			SELECT uuid, table_reference FROM uuid WHERE table_reference = "group_allowlist" AND uuid NOT IN (SELECT uuid FROM `group_allowlist`);
-		END IF;
-		IF ((SELECT uuid FROM uuid WHERE table_reference = "group_edit_permissions" AND uuid NOT IN (SELECT uuid FROM `group_edit_permissions`) LIMIT 1) IS NOT NULL) THEN
-			SELECT uuid, table_reference FROM uuid WHERE table_reference = "group_edit_permissions" AND uuid NOT IN (SELECT uuid FROM `group_edit_permissions`);
 		END IF;
 		IF ((SELECT uuid FROM uuid WHERE table_reference = "hierarchy" AND uuid NOT IN (SELECT uuid FROM `hierarchy`) AND (uuid NOT IN (SELECT object_uuid FROM `hierarchy`)) LIMIT 1) IS NOT NULL) THEN
 			SELECT uuid, table_reference FROM uuid WHERE table_reference = "hierarchy" AND uuid NOT IN (SELECT uuid FROM `hierarchy`) AND (uuid NOT IN (SELECT object_uuid FROM `hierarchy`));
@@ -86,14 +83,8 @@ CREATE PROCEDURE `find_uuids_in_uuid_and_not_in_other_tables`()
 		IF ((SELECT uuid FROM uuid WHERE table_reference = "predefinition" AND uuid NOT IN (SELECT uuid FROM `predefinition`) LIMIT 1) IS NOT NULL) THEN
 			SELECT uuid, table_reference FROM uuid WHERE table_reference = "predefinition" AND uuid NOT IN (SELECT uuid FROM `predefinition`);
 		END IF;
-		IF ((SELECT uuid FROM uuid WHERE table_reference = "public_denylist" AND uuid NOT IN (SELECT uuid FROM `public_denylist`) LIMIT 1) IS NOT NULL) THEN
-			SELECT uuid, table_reference FROM uuid WHERE table_reference = "public_denylist" AND uuid NOT IN (SELECT uuid FROM `public_denylist`);
-		END IF;
 		IF ((SELECT uuid FROM uuid WHERE table_reference = "reading_sibling" AND uuid NOT IN (SELECT uuid FROM `reading_sibling`) LIMIT 1) IS NOT NULL) THEN
 			SELECT uuid, table_reference FROM uuid WHERE table_reference = "reading_sibling" AND uuid NOT IN (SELECT uuid FROM `reading_sibling`);
-		END IF;
-		IF ((SELECT uuid FROM uuid WHERE table_reference = "reset_password_links" AND uuid NOT IN (SELECT uuid FROM `reset_password_links`) LIMIT 1) IS NOT NULL) THEN
-			SELECT uuid, table_reference FROM uuid WHERE table_reference = "reset_password_links" AND uuid NOT IN (SELECT uuid FROM `reset_password_links`);
 		END IF;
 		IF ((SELECT uuid FROM uuid WHERE table_reference = "resource" AND uuid NOT IN (SELECT uuid FROM `resource`) LIMIT 1) IS NOT NULL) THEN
 			SELECT uuid, table_reference FROM uuid WHERE table_reference = "resource" AND uuid NOT IN (SELECT uuid FROM `resource`);
@@ -119,23 +110,14 @@ CREATE PROCEDURE `find_uuids_in_uuid_and_not_in_other_tables`()
 		IF ((SELECT uuid FROM uuid WHERE table_reference = "text_discourse" AND uuid NOT IN (SELECT uuid FROM `text_discourse`) LIMIT 1) IS NOT NULL) THEN
 			SELECT uuid, table_reference FROM uuid WHERE table_reference = "text_discourse" AND uuid NOT IN (SELECT uuid FROM `text_discourse`);
 		END IF;
-		IF ((SELECT uuid FROM uuid WHERE table_reference = "text_drafts" AND uuid NOT IN (SELECT uuid FROM `text_drafts`) LIMIT 1) IS NOT NULL) THEN
-			SELECT uuid, table_reference FROM uuid WHERE table_reference = "text_drafts" AND uuid NOT IN (SELECT uuid FROM `text_drafts`);
-		END IF;
 		IF ((SELECT uuid FROM uuid WHERE table_reference = "text_epigraphy" AND uuid NOT IN (SELECT uuid FROM `text_epigraphy`) LIMIT 1) IS NOT NULL) THEN
 			SELECT uuid, table_reference FROM uuid WHERE table_reference = "text_epigraphy" AND uuid NOT IN (SELECT uuid FROM `text_epigraphy`);
 		END IF;
 		IF ((SELECT uuid FROM uuid WHERE table_reference = "text_markup" AND uuid NOT IN (SELECT uuid FROM `text_markup`) LIMIT 1) IS NOT NULL) THEN
 			SELECT uuid, table_reference FROM uuid WHERE table_reference = "text_markup" AND uuid NOT IN (SELECT uuid FROM `text_markup`);
 		END IF;
-		IF ((SELECT uuid FROM uuid WHERE table_reference = "threads" AND uuid NOT IN (SELECT uuid FROM `threads`) LIMIT 1) IS NOT NULL) THEN
-			SELECT uuid, table_reference FROM uuid WHERE table_reference = "threads" AND uuid NOT IN (SELECT uuid FROM `threads`);
-		END IF;
 		IF ((SELECT uuid FROM uuid WHERE table_reference = "tree" AND uuid NOT IN (SELECT uuid FROM `tree`) LIMIT 1) IS NOT NULL) THEN
 			SELECT uuid, table_reference FROM uuid WHERE table_reference = "tree" AND uuid NOT IN (SELECT uuid FROM `tree`);
-		END IF;
-		IF ((SELECT uuid FROM uuid WHERE table_reference = "unique_spellings" AND uuid NOT IN (SELECT uuid FROM `unique_spellings`) LIMIT 1) IS NOT NULL) THEN
-			SELECT uuid, table_reference FROM uuid WHERE table_reference = "unique_spellings" AND uuid NOT IN (SELECT uuid FROM `unique_spellings`);
 		END IF;
 		IF ((SELECT uuid FROM uuid WHERE table_reference = "user" AND uuid NOT IN (SELECT uuid FROM `user`) LIMIT 1) IS NOT NULL) THEN
 			SELECT uuid, table_reference FROM uuid WHERE table_reference = "user" AND uuid NOT IN (SELECT uuid FROM `user`);
