@@ -10,14 +10,7 @@ CREATE PROCEDURE `fix_obj_in_text_iteration_issues`()
 			LEFT JOIN (SELECT *, MIN(object_on_tablet) AS min FROM text_epigraphy WHERE discourse_uuid IS NOT NULL GROUP BY discourse_uuid ORDER BY text_uuid, object_on_tablet) AS te
 				ON te.discourse_uuid = td1.uuid
 			ORDER BY text_uuid, obj_in_text;
--- 		DECLARE cur1 CURSOR FOR 
--- 			SELECT td1.uuid, td1.text_uuid, td1.parent_uuid, td1.`type`, td1.obj_in_text, te.min, td1.word_on_tablet, td1.child_num FROM text_discourse as td1
--- 			LEFT JOIN (SELECT *, MIN(object_on_tablet) AS min FROM text_epigraphy WHERE discourse_uuid IS NOT NULL GROUP BY discourse_uuid ORDER BY text_uuid, object_on_tablet) AS te
--- 				ON te.discourse_uuid = td1.uuid
--- 			WHERE td1.text_uuid = "00101ab2-74d0-4fd5-b893-47af2f2518f8"
--- 			ORDER BY text_uuid, obj_in_text;
 		DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
-        
 		CREATE TEMPORARY TABLE IF NOT EXISTS temp_result_table (
 		  `uuid` CHAR(36) CHARACTER SET 'latin1' COLLATE 'latin1_swedish_ci' NOT NULL,
 		  `text_uuid` CHAR(36) CHARACTER SET 'latin1' COLLATE 'latin1_swedish_ci' NULL,
