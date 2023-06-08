@@ -1,6 +1,5 @@
 CREATE PROCEDURE `iterate_char_on_tablet_on_delete`(IN this_uuid CHAR(36))
 	BEGIN
-	DECLARE this_char_on_tablet INT DEFAULT 0;
 		DECLARE this_char_on_tablet INT DEFAULT 0;
 		DECLARE this_text_uuid CHAR(36) DEFAULT '';
 		DECLARE parent_type VARCHAR(250) DEFAULT '';
