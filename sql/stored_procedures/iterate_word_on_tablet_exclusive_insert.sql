@@ -1,4 +1,4 @@
-CREATE PROCEDURE `iterate_word_on_tablet_after_insert`(IN this_uuid CHAR(36))
+CREATE PROCEDURE `iterate_word_on_tablet_exclusive_insert`(IN this_uuid CHAR(36))
 	BEGIN
 		DECLARE this_word_on_tablet INT DEFAULT 0;
 		DECLARE this_text_uuid CHAR(36) DEFAULT '';

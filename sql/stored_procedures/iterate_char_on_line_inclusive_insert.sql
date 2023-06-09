@@ -1,4 +1,4 @@
-CREATE PROCEDURE `iterate_char_on_line_before_insert`(IN this_uuid CHAR(36))
+CREATE PROCEDURE `iterate_char_on_line_inclusive_insert`(IN this_uuid CHAR(36))
 	BEGIN
 		DECLARE this_char_on_line INT DEFAULT 0;
 		DECLARE this_parent_uuid CHAR(36) DEFAULT '';

@@ -1,4 +1,4 @@
-CREATE PROCEDURE `iterate_obj_in_text_before_insert`(IN this_uuid CHAR(36))
+CREATE PROCEDURE `iterate_obj_in_text_inclusive_insert`(IN this_uuid CHAR(36))
 	BEGIN
 		DECLARE this_obj_in_text INT DEFAULT 0;
 		DECLARE this_text_uuid CHAR(36) DEFAULT '';

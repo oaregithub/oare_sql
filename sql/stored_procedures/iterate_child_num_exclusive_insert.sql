@@ -1,4 +1,4 @@
-CREATE PROCEDURE `iterate_child_num_after_insert`(IN this_uuid CHAR(36))
+CREATE PROCEDURE `iterate_child_num_exclusive_insert`(IN this_uuid CHAR(36))
 	BEGIN
 		DECLARE this_child_num INT DEFAULT 0;
 		DECLARE this_parent_uuid CHAR(36) DEFAULT '';
