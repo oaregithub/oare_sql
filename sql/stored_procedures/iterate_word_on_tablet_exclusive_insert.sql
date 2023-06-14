@@ -5,5 +5,5 @@ CREATE PROCEDURE `iterate_word_on_tablet_exclusive_insert`(IN this_uuid CHAR(36)
 		SELECT text_uuid INTO this_text_uuid FROM text_discourse WHERE uuid = CONVERT(this_uuid USING latin1) COLLATE latin1_swedish_ci;
 		SELECT word_on_tablet INTO this_word_on_tablet FROM text_discourse WHERE uuid = CONVERT(this_uuid USING latin1) COLLATE latin1_swedish_ci;
 		-- might need to adjust logic to more explicity identify actual words
-		UPDATE text_discourse SET word_on_tablet = (word_on_tablet+1) WHERE text_uuid = CONVERT(this_text_uuid USING latin1) COLLATE latin1_swedish_ci AND word_on_tablet IS NOT NULL AND word_on_tablet >= (this_word_on_tablet+1) AND uuid != this_uuid  ORDER BY obj_in_text ASC;
+		UPDATE text_discourse SET word_on_tablet = (word_on_tablet+1) WHERE text_uuid = CONVERT(this_text_uuid USING latin1) COLLATE latin1_swedish_ci AND word_on_tablet IS NOT NULL AND word_on_tablet >= (this_word_on_tablet+1) AND uuid != CONVERT(this_uuid USING latin1) COLLATE latin1_swedish_ci ORDER BY obj_in_text ASC;
     END
