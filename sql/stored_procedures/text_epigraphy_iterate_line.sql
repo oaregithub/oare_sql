@@ -8,7 +8,8 @@ CREATE PROCEDURE `text_epigraphy_iterate_line`(IN this_text_uuid CHAR(36), IN th
 		DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
         
         SET @line:=this_line;        
-        UPDATE text_epigraphy SET `line` = @line := @line+1 WHERE text_uuid = this_text_uuid AND `type` = 'line' AND `line` >= (this_line);
+        UPDATE text_epigraphy SET `line` = @line+1 WHERE text_uuid = this_text_uuid AND `type` = 'line' AND `line` >= (this_line);
+		-- UPDATE text_epigraphy SET `line` = @line := @line+1 WHERE text_uuid = this_text_uuid AND `type` = 'line' AND `line` >= (this_line); error on the variable assignment within the statement
 		
 		OPEN cur1;
 	
