@@ -2,7 +2,7 @@ CREATE PROCEDURE `tmp_consldt_master`()
 BEGIN
 	DECLARE uuidA, uuidB, formA, formB, spellA, spellB CHAR(36) CHARSET utf8mb4 DEFAULT NULL;
 	DECLARE explSpell1, explSpell2 VARCHAR(50) CHARSET utf8mb4 DEFAULT NULL;
-	DECLARE maxid, n1, n2 INT(4) DEFAULT 1;
+	DECLARE maxid, n1, n2 INT DEFAULT 1;
 
 SELECT MAX(id) INTO maxid FROM tmp_doubled_dict_spellings_PN;
 -- SET maxid := 10;

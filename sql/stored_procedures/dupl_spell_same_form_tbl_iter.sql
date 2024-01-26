@@ -1,10 +1,10 @@
 CREATE PROCEDURE `dupl_spell_same_form_tbl_iter`()
 BEGIN
   DECLARE this_explicit_spelling VARCHAR(25) CHARACTER SET utf8mb4 DEFAULT '';
-  DECLARE this_count INT(2) DEFAULT 0;
+  DECLARE this_count INT DEFAULT 0;
   DECLARE this_form_uuid CHAR(36) DEFAULT '';
-  DECLARE n INT(8) DEFAULT 0;
-  DECLARE i INT(8) DEFAULT 0;
+  DECLARE n INT DEFAULT 0;
+  DECLARE i INT DEFAULT 0;
   DECLARE i2 INT DEFAULT 0;
   DECLARE keep_this_uuid CHAR(36) DEFAULT '';
   DECLARE kill_this_uuid CHAR(36) DEFAULT '';

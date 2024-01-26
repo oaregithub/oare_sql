@@ -1,10 +1,10 @@
 CREATE PROCEDURE `enphrase_3_words`(IN this_uuid CHAR(36), IN that_uuid CHAR(36), IN other_uuid CHAR(36))
 BEGIN
-       DECLARE this_obj_in_text, that_obj_in_text INT(4) DEFAULT 0;
-       DECLARE max_td_id INT(12) DEFAULT 0;
+       DECLARE this_obj_in_text, that_obj_in_text INT DEFAULT 0;
+       DECLARE max_td_id INT DEFAULT 0;
 	   DECLARE this_parent_uuid, that_parent_uuid, this_text_uuid, that_text_uuid, this_tree_uuid, that_tree_uuid, new_phrase_uuid CHAR(36) DEFAULT '';
        DECLARE this_type, that_type VARCHAR(60) DEFAULT '';
-       DECLARE this_id, that_id, other_id, this_child_num INT(12) DEFAULT NULL;
+       DECLARE this_id, that_id, other_id, this_child_num INT DEFAULT NULL;
 		
 	SELECT id INTO this_id FROM text_discourse WHERE uuid = this_uuid;
     SELECT id INTO that_id FROM text_discourse WHERE uuid = that_uuid;

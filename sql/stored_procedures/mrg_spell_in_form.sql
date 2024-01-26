@@ -1,6 +1,6 @@
 CREATE PROCEDURE `mrg_spell_in_form`(IN this_uuid CHAR(36), that_uuid CHAR(36))
 BEGIN
-		DECLARE this_ct, that_ct INT(6) DEFAULT 0;
+		DECLARE this_ct, that_ct INT DEFAULT 0;
         
         SELECT COUNT(id) INTO this_ct FROM text_discourse WHERE spelling_uuid = this_uuid;
         SELECT COUNT(id) INTO that_ct FROM text_discourse WHERE spelling_uuid = that_uuid;

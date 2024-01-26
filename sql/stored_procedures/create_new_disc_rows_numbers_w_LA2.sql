@@ -5,8 +5,8 @@ BEGIN
         DECLARE thisPsblWord, explSpell VARCHAR(50) CHARSET utf8mb4 DEFAULT NULL;
         DECLARE maxid, basementId VARCHAR(10) DEFAULT NULL;
 		DECLARE thisLine DECIMAL(5,2) DEFAULT NULL;
-        DECLARE childNum, prevWordOnTablet, spellCt, prevCharOnTablet, nextCharOnTablet, n, n2 INT(4) DEFAULT NULL;
-        DECLARE thisCharId, nextCharId INT (10) DEFAULT NULL;
+        DECLARE childNum, prevWordOnTablet, spellCt, prevCharOnTablet, nextCharOnTablet, n, n2 INT DEFAULT NULL;
+        DECLARE thisCharId, nextCharId INT DEFAULT NULL;
 		DECLARE test1, test2, test3, test4 BOOLEAN DEFAULT FALSE;
     
         -- set basement to start from (used to ensure the SP won't stall on same single sign that doesn't match)
@@ -48,11 +48,11 @@ BEGIN
          -- this creates a table to gather info to evaluate continuity and then later assign discUuid to discourse_uuid 
         CREATE TEMPORARY TABLE this_word(
 			temp_id INT NOT NULL AUTO_INCREMENT,
-            this_id INT(10),
+            this_id INT,
             this_type VARCHAR(15),
             this_line DECIMAL(5,2),
             this_rdg VARCHAR(10),
-            char_on_tablet INT(4),
+            char_on_tablet INT,
              PRIMARY KEY (temp_id)
             );
             -- this inserts the first line of the table
