@@ -21,7 +21,7 @@ DECLARE this_type, this_sign VARCHAR(250) DEFAULT '';
 		SELECT reference_uuid INTO this_sign_uuid FROM sign_reading WHERE uuid = this_reading_uuid;
 		SELECT discourse_uuid INTO this_discourse_uuid FROM text_epigraphy WHERE uuid = this_uuid;
 
-CALL text_epigraphy_iterate_after_insert(this_uuid);
+CALL text_epigraphy_iterate_exclusive_insert(this_uuid);
 
 UPDATE text_epigraphy SET reading = this_reading WHERE uuid = this_uuid;
 -- SET FOREIGN_KEY_CHECKS = 0;
