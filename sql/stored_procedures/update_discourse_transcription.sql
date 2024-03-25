@@ -13,7 +13,9 @@ BEGIN
 		SELECT uuid INTO possible_spelling_uuid FROM dictionary_spelling WHERE explicit_spelling = new_explicit_spelling GROUP BY explicit_spelling;
         IF ((new_spell_uuid = '') OR (new_type = 'number')) THEN
 			UPDATE text_discourse SET transcription = NULL WHERE uuid = CONVERT(this_discourse_uuid USING latin1) COLLATE latin1_swedish_ci;        
-		ELSE
+		ELSEIF (new_type = 'region') THEN
+            UPDATE text_discourse SET transcription = old_transcription WHERE uuid = CONVERT(this_discourse_uuid USING latin1) COLLATE latin1_swedish_ci; 
+        ELSE
 			IF (new_transcription != old_transcription) THEN
 			    IF (new_transcription = '') THEN
 				    UPDATE text_discourse SET transcription = NULL WHERE uuid = CONVERT(this_discourse_uuid USING latin1) COLLATE latin1_swedish_ci; 
