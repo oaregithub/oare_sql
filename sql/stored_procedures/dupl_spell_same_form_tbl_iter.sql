@@ -12,10 +12,10 @@ BEGIN
   CREATE TEMPORARY TABLE IF NOT EXISTS tmp_tbl_dupl_spellb (
 	`id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
     spelling_uuid CHAR(36) CHARACTER SET latin1 DEFAULT NULL,
-	form_uuid CHAR(36) CHARACTER SET latin1 DEFAULT NULL,
+	  form_uuid CHAR(36) CHARACTER SET latin1 DEFAULT NULL,
     explicit_spelling VARCHAR(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-	form VARCHAR(250) COLLATE utf8mb4_bin NOT NULL,
-	`count` INT,
+	  form VARCHAR(250) COLLATE utf8mb4_bin NOT NULL,
+	  `count` INT,
     PRIMARY KEY (`id`),
     KEY spelling_uuid (spelling_uuid),
     KEY form_uuid (form_uuid)

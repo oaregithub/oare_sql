@@ -119,7 +119,7 @@ BEGIN
 					ELSEIF (sign_reading ='ki') THEN
 						SET discourse_spelling := CONCAT(discourse_spelling, '(', sign_reading);
 					ELSE
-						SET discourse_spelling := CONCAT(discourse_spelling, '-(', sign_reading);
+						SET discourse_spelling := CONCAT(discourse_spelling, '=(', sign_reading);
 					END IF;
 				ELSEIF previous_sign_type = 'determinative' AND sign_type = 'determinative' THEN
 					SET discourse_spelling := CONCAT(discourse_spelling, ')(', sign_reading);
