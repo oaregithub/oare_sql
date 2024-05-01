@@ -17,16 +17,6 @@ BEGIN
 		ELSEIF (new_type = 'region') THEN
             UPDATE text_discourse SET transcription = old_transcription WHERE uuid = CONVERT(this_discourse_uuid USING latin1) COLLATE latin1_swedish_ci;
         ELSE
-			IF (new_transcription != old_transcription) THEN
-			    IF (new_transcription = '') THEN
-                SELECT "HERE!";
-				    UPDATE text_discourse SET transcription = NULL WHERE uuid = CONVERT(this_discourse_uuid USING latin1) COLLATE latin1_swedish_ci;
-                ELSE
-                    UPDATE text_discourse SET transcription = new_transcription WHERE uuid = CONVERT(this_discourse_uuid USING latin1) COLLATE latin1_swedish_ci;
-                END IF;
-            END IF;
+			UPDATE text_discourse SET transcription = new_transcription WHERE uuid = CONVERT(this_discourse_uuid USING latin1) COLLATE latin1_swedish_ci;
 		END IF;
-        IF (new_spelling_count = 1) THEN -- #the possible_spelling_uuid shouldn't be needed if update_discourse_spellings has been run first, consider removing that part.
-			UPDATE text_discourse SET spelling_uuid = possible_spelling_uuid, transcription = new_transcription WHERE uuid = CONVERT(this_discourse_uuid USING latin1) COLLATE latin1_swedish_ci;
-        END IF;
 END
