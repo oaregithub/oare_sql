@@ -12,8 +12,8 @@ BEGIN
         SELECT `type` INTO new_type FROM text_discourse WHERE uuid = CONVERT(this_discourse_uuid USING latin1) COLLATE latin1_swedish_ci;
 		SELECT COUNT(explicit_spelling) INTO new_spelling_count FROM dictionary_spelling WHERE explicit_spelling = new_explicit_spelling GROUP BY explicit_spelling;
 		SELECT uuid INTO possible_spelling_uuid FROM dictionary_spelling WHERE explicit_spelling = new_explicit_spelling GROUP BY explicit_spelling;
-        IF ((new_spell_uuid = '') OR (new_type = 'number')) THEN
-			UPDATE text_discourse SET transcription = NULL WHERE uuid = CONVERT(this_discourse_uuid USING latin1) COLLATE latin1_swedish_ci;  
+        IF ((new_spell_uuid IN('',NULL)) OR (new_type = 'number')) THEN
+			UPDATE text_discourse SET transcription = NULL WHERE uuid = CONVERT(this_discourse_uuid USING latin1) COLLATE latin1_swedish_ci;        
 		ELSEIF (new_type = 'region') THEN
             UPDATE text_discourse SET transcription = old_transcription WHERE uuid = CONVERT(this_discourse_uuid USING latin1) COLLATE latin1_swedish_ci;
         ELSE
@@ -25,9 +25,8 @@ BEGIN
                 END IF;
             END IF;
 		END IF;
-        IF (new_spelling_count = 1) THEN
-			UPDATE text_discourse SET spelling_uuid = possible_spelling_uuid, transcription = new_transcription WHERE uuid = CONVERT(this_discourse_uuid USING latin1) COLLATE latin1_swedish_ci; 
-		ELSE 
-			UPDATE text_discourse SET spelling_uuid = NULL, transcription = NULL WHERE uuid = CONVERT(this_discourse_uuid USING latin1) COLLATE latin1_swedish_ci;
+        IF (new_spelling_count = 1) THEN -- #the possible_spelling_uuid shouldn't be needed if update_discourse_spellings has been run first, consider removing that part.
+			UPDATE text_discourse SET spelling_uuid = possible_spelling_uuid, transcription = new_transcription WHERE uuid = CONVERT(this_discourse_uuid USING latin1) COLLATE latin1_swedish_ci;
         END IF;
+
 END
