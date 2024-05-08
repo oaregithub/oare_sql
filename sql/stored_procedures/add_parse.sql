@@ -204,7 +204,7 @@ BEGIN
             END IF;
 		END IF;         
         IF (pos = "noun") THEN 
-    	    INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+     	    INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 			(uuid2,form_uuid,uuid1,1,"5a27fd3a-7c58-7d0f-3acb-78a6ecd8b286","2543c975-7768-fb7b-16d8-6246d935d26b","Noun");
              IF (SELECT this_string REGEXP "^ptcpl\." = 1) THEN
 				SET this_string = REGEXP_REPLACE(this_string,"^ptcpl\.","");
@@ -227,7 +227,7 @@ BEGIN
 				SET this_string = REGEXP_REPLACE(this_string,"^prop_noun\.","");
                 INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(uuid3,form_uuid,uuid2,2,"5a27fd3a-7c58-7d0f-3acb-78a6ecd8b286","45ba95f5-951c-e524-94a1-9c3028c1352b","Proper noun");
-				--finish when one comes up
+				-- finish when one comes up
             END IF;
         	IF (SELECT this_string REGEXP "^m\." = 1) THEN -- GENDER
 				SET this_string = REGEXP_REPLACE(this_string,"^m\.","");
@@ -350,6 +350,7 @@ BEGIN
 					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 					(UUID(),form_uuid,uuid5,3,"e0092e36-fb94-a4dc-cd04-5883ab861fd6","e9e175d1-c1f8-b938-6c68-3846515d9387","Genitive");
 				END IF;
+			END IF;
         END IF;
 
 		IF (SELECT this_string REGEXP "^\-ma\." = 1) THEN
