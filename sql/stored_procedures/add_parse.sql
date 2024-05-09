@@ -275,6 +275,132 @@ BEGIN
 				END IF;
 			END IF;
 		END IF;
+		IF (pos = "adj") THEN 
+     	    INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+			(uuid2,form_uuid,uuid1,1,"5a27fd3a-7c58-7d0f-3acb-78a6ecd8b286","81eeb01f-f247-2b19-2dc2-c95812bf5789","Adjective");
+             IF (SELECT this_string REGEXP "^vb_adj\." = 1) THEN
+				SET this_string = REGEXP_REPLACE(this_string,"^vb_adj\.","");
+                INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(uuid3,form_uuid,uuid2,2,"5a27fd3a-7c58-7d0f-3acb-78a6ecd8b286","c6069b7e-9036-25ee-8a1c-cbc50b1b8e20","Verbal Adjective");
+            ELSEIF (SELECT this_string REGEXP "^demonstr\." = 1) THEN
+				SET this_string = REGEXP_REPLACE(this_string,"^demonstr\.","");
+                INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(UUID(),form_uuid,uuid2,2,"5a27fd3a-7c58-7d0f-3acb-78a6ecd8b286","ee5a48c4-b5bc-3c46-6aa1-f71c8ad07efc","Demonstrative");
+            ELSEIF (SELECT this_string REGEXP "^ana\." = 1) THEN
+				SET this_string = REGEXP_REPLACE(this_string,"^ana\.","");
+                INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(UUID(),form_uuid,uuid2,2,"5a27fd3a-7c58-7d0f-3acb-78a6ecd8b286","d100384c-3154-34d9-3fee-2d8345b36e8c","Anaphoric");
+            ELSEIF (SELECT this_string REGEXP "^ord\." = 1) THEN
+				SET this_string = REGEXP_REPLACE(this_string,"^ord\.","");
+                INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(UUID(),form_uuid,uuid2,2,"5a27fd3a-7c58-7d0f-3acb-78a6ecd8b286","9211746f-6ae4-776c-765b-e8dcf0b62eb6","Ordinal");
+            ELSEIF (SELECT this_string REGEXP "^indef\." = 1) THEN
+				SET this_string = REGEXP_REPLACE(this_string,"^indef\.","");
+                INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(UUID(),form_uuid,uuid2,2,"5a27fd3a-7c58-7d0f-3acb-78a6ecd8b286","d7e22ad8-5f7b-8336-81e7-f223be68eea0","Indefinite");
+			ELSEIF (SELECT this_string REGEXP "^interr\." = 1) THEN
+				SET this_string = REGEXP_REPLACE(this_string,"^interr\.","");
+                INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(uuid3,form_uuid,uuid2,2,"5a27fd3a-7c58-7d0f-3acb-78a6ecd8b286","1b41cf0e-6a09-4f49-0394-85edf6f74b53","Interrogative");
+            END IF;
+        	IF (SELECT this_string REGEXP "^m\." = 1) THEN -- GENDER
+				SET this_string = REGEXP_REPLACE(this_string,"^m\.","");
+				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(UUID(),form_uuid,uuid2,2,"46c78931-2cb6-5d45-3049-f9903dc4177e","2f66a05b-87f6-0cbc-b778-5dde673616ac","Masculine");
+			ELSEIF (SELECT this_string REGEXP "^f\." = 1) THEN 
+				SET this_string = REGEXP_REPLACE(this_string,"^f\.","");
+				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(UUID(),form_uuid,uuid2,2,"46c78931-2cb6-5d45-3049-f9903dc4177e","d501f42b-62d1-a4cf-a6d3-15e5048a9134","Feminine");
+			END IF;
+			IF (SELECT this_string REGEXP "^sg\." = 1) THEN -- GRAM #
+				SET this_string = REGEXP_REPLACE(this_string,"^sg\.","");
+				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(UUID(),form_uuid,uuid2,2,"c5a0f22a-00cd-e643-bea8-8434fca0b056","071167a8-94c6-0f0f-b654-a79b40ea4201","Singular");
+			ELSEIF (SELECT this_string REGEXP "^du\." = 1) THEN 
+				SET this_string = REGEXP_REPLACE(this_string,"^du\.","");
+				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(UUID(),form_uuid,uuid2,2,"c5a0f22a-00cd-e643-bea8-8434fca0b056","ea47986d-f2ad-ecca-489e-00e807cc11a0","Dual");
+			ELSEIF (SELECT this_string REGEXP "^pl\." = 1) THEN 
+				SET this_string = REGEXP_REPLACE(this_string,"^pl\.","");
+				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(UUID(),form_uuid,uuid2,2,"c5a0f22a-00cd-e643-bea8-8434fca0b056","56c6c3ab-4ddd-f63e-7a91-3cc67c4295cb","Plural");
+			END IF;
+			IF (SELECT this_string REGEXP "^nom\." = 1) THEN 
+				SET this_string = REGEXP_REPLACE(this_string,"^nom\.","");
+				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(UUID(),form_uuid,uuid2,2,"e0092e36-fb94-a4dc-cd04-5883ab861fd6","dd54b5af-8e97-5ee1-7662-486b8d195a86","Nominative");
+			ELSEIF (SELECT this_string REGEXP "^gen\." = 1) THEN 
+				SET this_string = REGEXP_REPLACE(this_string,"^gen\.","");
+				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(UUID(),form_uuid,uuid2,2,"e0092e36-fb94-a4dc-cd04-5883ab861fd6","e9e175d1-c1f8-b938-6c68-3846515d9387","Genitive");
+			ELSEIF (SELECT this_string REGEXP "^acc\." = 1) THEN 
+				SET this_string = REGEXP_REPLACE(this_string,"^acc\.","");
+				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(UUID(),form_uuid,uuid2,2,"e0092e36-fb94-a4dc-cd04-5883ab861fd6","5844ffb8-86e5-d516-69c3-21df50cce115","Accusative");
+			ELSEIF (SELECT this_string REGEXP "^loc\." = 1) THEN 
+				SET this_string = REGEXP_REPLACE(this_string,"^loc\.","");
+				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(UUID(),form_uuid,uuid2,2,"e0092e36-fb94-a4dc-cd04-5883ab861fd6","4370aa93-0ebe-8762-af15-c47920393efe","Locative-Adverbial");
+			ELSEIF (SELECT this_string REGEXP "^term\." = 1) THEN 
+				SET this_string = REGEXP_REPLACE(this_string,"^term\.","");
+				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(UUID(),form_uuid,uuid2,2,"e0092e36-fb94-a4dc-cd04-5883ab861fd6","da04e5f3-f10b-165c-4e71-a635c6a10b6b","Terminative-Adverbial");			
+			ELSEIF (SELECT this_string REGEXP "^oblq\." = 1) THEN 
+				SET this_string = REGEXP_REPLACE(this_string,"^oblq\.","");
+				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(UUID(),form_uuid,uuid2,2,"e0092e36-fb94-a4dc-cd04-5883ab861fd6","e107d0e4-bd44-3aac-80ef-a1c6f6bc6962","Oblique");			
+			END IF;
+			IF (SELECT this_string REGEXP "^abs\." = 1) THEN 
+				SET this_string = REGEXP_REPLACE(this_string,"^abs\.","");
+				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(UUID(),form_uuid,uuid2,2,"e0092e36-fb94-a4dc-cd04-5883ab861fd6","4ed769b8-1e49-f4c8-9217-d19aa0194448","Absolute state");
+			END IF;
+			IF (SELECT this_string REGEXP "^suf\." = 1) THEN 
+ 				SET this_string = REGEXP_REPLACE(this_string,"^suf\.","");
+				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+				(uuid5,form_uuid,uuid2,2,"04c0ca79-ead3-79a0-a8f9-6de075e4c549","c6329de2-2db3-44a2-d39b-ff423f1d3e6e","Suffix pronoun");
+				IF (SELECT this_string REGEXP "^first\." = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^first\.","");
+					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+					(UUID(),form_uuid,uuid5,3,"b3b45c2f-83f9-7077-20fe-0f9587a9870c","1bb5c53c-83ec-fb05-8378-9cc7ff04f961","First Person");
+				ELSEIF (SELECT this_string REGEXP "^second\." = 1) THEN 
+					SET this_string = REGEXP_REPLACE(this_string,"^second\.","");
+					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+					(UUID(),form_uuid,uuid5,3,"b3b45c2f-83f9-7077-20fe-0f9587a9870c","87ba5a1c-89e2-ac30-02e8-9d3abe9df6ef","Second Person");
+				ELSEIF (SELECT this_string REGEXP "^third\." = 1) THEN 
+					SET this_string = REGEXP_REPLACE(this_string,"^third\.","");
+					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+					(UUID(),form_uuid,uuid5,3,"b3b45c2f-83f9-7077-20fe-0f9587a9870c","01412cae-e7d2-1fe7-ef2b-4d6d701dfc45","Third Person");
+				END IF;
+				IF (SELECT this_string REGEXP "^m\." = 1) THEN 
+					SET this_string = REGEXP_REPLACE(this_string,"^m\.","");
+					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+					(UUID(),form_uuid,uuid5,3,"46c78931-2cb6-5d45-3049-f9903dc4177e","2f66a05b-87f6-0cbc-b778-5dde673616ac","Masculine");
+				ELSEIF (SELECT this_string REGEXP "^f\." = 1) THEN 
+					SET this_string = REGEXP_REPLACE(this_string,"^f\.","");
+					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+					(UUID(),form_uuid,uuid5,3,"46c78931-2cb6-5d45-3049-f9903dc4177e","d501f42b-62d1-a4cf-a6d3-15e5048a9134","Feminine");
+				ELSEIF (SELECT this_string REGEXP "^c\." = 1) THEN 
+					SET this_string = REGEXP_REPLACE(this_string,"^c\.","");
+					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+					(UUID(),form_uuid,uuid5,3,"46c78931-2cb6-5d45-3049-f9903dc4177e","026a4013-6a9f-51ab-9e24-d3322cdaafc1","Common gender");
+				END IF;
+				IF (SELECT this_string REGEXP "^sg\." = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^sg\.","");
+					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+					(UUID(),form_uuid,uuid5,3,"c5a0f22a-00cd-e643-bea8-8434fca0b056","071167a8-94c6-0f0f-b654-a79b40ea4201","Singular");
+				ELSEIF (SELECT this_string REGEXP "^pl\." = 1) THEN 
+					SET this_string = REGEXP_REPLACE(this_string,"^pl\.","");
+					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+					(UUID(),form_uuid,uuid5,3,"c5a0f22a-00cd-e643-bea8-8434fca0b056","ea47986d-f2ad-ecca-489e-00e807cc11a0","Plural");
+				END IF;
+				IF (SELECT this_string REGEXP "^gen\." = 1) THEN 
+ 					SET this_string = REGEXP_REPLACE(this_string,"^gen\.","");
+					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
+					(UUID(),form_uuid,uuid5,3,"e0092e36-fb94-a4dc-cd04-5883ab861fd6","e9e175d1-c1f8-b938-6c68-3846515d9387","Genitive");
+				END IF;
+			END IF;
+        END IF;
 		IF (pos = "noun") THEN 
      	    INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 			(uuid2,form_uuid,uuid1,1,"5a27fd3a-7c58-7d0f-3acb-78a6ecd8b286","2543c975-7768-fb7b-16d8-6246d935d26b","Noun");
