@@ -58,7 +58,7 @@ BEGIN
 			IF (SELECT this_string REGEXP "^\-ma\." = 1) THEN
 				SET this_string = REGEXP_REPLACE(this_string,"^\-ma\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
-				(UUID(),form_uuid,uuid2,2,"04c0ca79-ead3-79a0-a8f9-6de075e4c549","36e4ca3d-2cc6-bb9d-d57c-ce19cacb1a0c","-ma");
+				(UUID(),form_uuid,uuid2,2,"04c0ca79-ead3-79a0-a8f9-6de075e4c549","c8851206-aba2-ca18-e219-91f8e45eb5ad","-ma");
 			END IF;
 		END IF;
 		IF (pos = "adv") THEN 
@@ -904,7 +904,7 @@ BEGIN
 			IF (SELECT this_string REGEXP "^\-ma\." = 1) THEN
 				SET this_string = REGEXP_REPLACE(this_string,"^\-ma\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
-				(UUID(),form_uuid,uuid2,2,"04c0ca79-ead3-79a0-a8f9-6de075e4c549","36e4ca3d-2cc6-bb9d-d57c-ce19cacb1a0c","-ma");
+				(UUID(),form_uuid,uuid2,2,"04c0ca79-ead3-79a0-a8f9-6de075e4c549","c8851206-aba2-ca18-e219-91f8e45eb5ad","-ma");
 			END IF;
 		END IF;
 		IF (pos = "cnj") THEN 
@@ -931,7 +931,7 @@ BEGIN
 		IF (SELECT this_string REGEXP "^\-ma\." = 1) THEN
 			SET this_string = REGEXP_REPLACE(this_string,"^\-ma\.","");
 			INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
-			(UUID(),form_uuid,uuid1,1,"04c0ca79-ead3-79a0-a8f9-6de075e4c549","e8f7ff00-1efe-af07-3385-244f7646e99d","-ma");
+			(UUID(),form_uuid,uuid1,1,"04c0ca79-ead3-79a0-a8f9-6de075e4c549","c8851206-aba2-ca18-e219-91f8e45eb5ad","-ma");
 		ELSEIF (SELECT this_string REGEXP "^\-mi\." = 1) THEN
 			SET this_string = REGEXP_REPLACE(this_string,"^\-mi\.","");
 			INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
