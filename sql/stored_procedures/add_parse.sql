@@ -329,23 +329,28 @@ BEGIN
 				SET this_string = REGEXP_REPLACE(this_string,"^nom\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(UUID(),form_uuid,uuid2,2,"e0092e36-fb94-a4dc-cd04-5883ab861fd6","dd54b5af-8e97-5ee1-7662-486b8d195a86","Nominative");
-			ELSEIF (SELECT this_string REGEXP "^gen\." = 1) THEN 
+			END IF;
+			IF (SELECT this_string REGEXP "^gen\." = 1) THEN 
 				SET this_string = REGEXP_REPLACE(this_string,"^gen\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(UUID(),form_uuid,uuid2,2,"e0092e36-fb94-a4dc-cd04-5883ab861fd6","e9e175d1-c1f8-b938-6c68-3846515d9387","Genitive");
-			ELSEIF (SELECT this_string REGEXP "^acc\." = 1) THEN 
+			END IF;
+			IF (SELECT this_string REGEXP "^acc\." = 1) THEN 
 				SET this_string = REGEXP_REPLACE(this_string,"^acc\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(UUID(),form_uuid,uuid2,2,"e0092e36-fb94-a4dc-cd04-5883ab861fd6","5844ffb8-86e5-d516-69c3-21df50cce115","Accusative");
-			ELSEIF (SELECT this_string REGEXP "^loc\." = 1) THEN 
+			END IF;
+			IF (SELECT this_string REGEXP "^loc\." = 1) THEN 
 				SET this_string = REGEXP_REPLACE(this_string,"^loc\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(UUID(),form_uuid,uuid2,2,"e0092e36-fb94-a4dc-cd04-5883ab861fd6","4370aa93-0ebe-8762-af15-c47920393efe","Locative-Adverbial");
-			ELSEIF (SELECT this_string REGEXP "^term\." = 1) THEN 
+			END IF;
+			IF (SELECT this_string REGEXP "^term\." = 1) THEN 
 				SET this_string = REGEXP_REPLACE(this_string,"^term\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
-				(UUID(),form_uuid,uuid2,2,"e0092e36-fb94-a4dc-cd04-5883ab861fd6","da04e5f3-f10b-165c-4e71-a635c6a10b6b","Terminative-Adverbial");			
-			ELSEIF (SELECT this_string REGEXP "^oblq\." = 1) THEN 
+				(UUID(),form_uuid,uuid2,2,"e0092e36-fb94-a4dc-cd04-5883ab861fd6","da04e5f3-f10b-165c-4e71-a635c6a10b6b","Terminative-Adverbial");
+			END IF;	
+			IF (SELECT this_string REGEXP "^oblq\." = 1) THEN 
 				SET this_string = REGEXP_REPLACE(this_string,"^oblq\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(UUID(),form_uuid,uuid2,2,"e0092e36-fb94-a4dc-cd04-5883ab861fd6","e107d0e4-bd44-3aac-80ef-a1c6f6bc6962","Oblique");			
