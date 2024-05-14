@@ -413,52 +413,52 @@ BEGIN
 				SET this_string = REGEXP_REPLACE(this_string,"^ptcpl\.","");
                 INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(uuid3,form_uuid,uuid2,2,"5a27fd3a-7c58-7d0f-3acb-78a6ecd8b286","7cde137c-4f04-b872-e358-9cd6aa8e5812","Participle");
-				IF (SELECT this_string REGEXP "^G\." = 1) THEN -- STEM
-					SET this_string = REGEXP_REPLACE(this_string,"^G\.","");
+				IF (SELECT this_string REGEXP "^Gtn\." = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^Gtn\.","");
 					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
-					(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","42f9c637-53c5-f701-1ca3-0970eeda89a7","G");
+					(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","ebaee812-011f-59d5-fe0f-083e0965d266","Gtn");
 				ELSEIF (SELECT this_string REGEXP "^Gt\." = 1) THEN
 					SET this_string = REGEXP_REPLACE(this_string,"^Gt\.","");
 					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 					(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","6ef4493b-ffa6-ef0f-3084-36461541cc3e","Gt");
-				ELSEIF (SELECT this_string REGEXP "^Gtn\." = 1) THEN
-					SET this_string = REGEXP_REPLACE(this_string,"^Gtn\.","");
+				ELSEIF (SELECT this_string REGEXP "^G\." = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^G\.","");
 					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
-					(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","ebaee812-011f-59d5-fe0f-083e0965d266","Gtn");
-				ELSEIF (SELECT this_string REGEXP "^D\." = 1) THEN
-					SET this_string = REGEXP_REPLACE(this_string,"^D\.","");
+					(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","42f9c637-53c5-f701-1ca3-0970eeda89a7","G");
+				ELSEIF (SELECT this_string REGEXP "^Dtn\." = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^Dtn\.","");
 					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 					(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","089fddd0-828c-567c-344a-3605870a4e6e","D");
 				ELSEIF (SELECT this_string REGEXP "^Dt\." = 1) THEN
 					SET this_string = REGEXP_REPLACE(this_string,"^Dt\.","");
 					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 					(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","c9292de7-a686-e1e3-83a7-9c461e68b2b5","Dt");
-				ELSEIF (SELECT this_string REGEXP "^Dtn\." = 1) THEN
-					SET this_string = REGEXP_REPLACE(this_string,"^Dtn\.","");
+				ELSEIF (SELECT this_string REGEXP "^D\." = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^D\.","");
 					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 					(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","32b1bc02-3c4c-cca1-e52f-112550886806","Dtn");
-				ELSEIF (SELECT this_string REGEXP "^Š\." = 1) THEN
-					SET this_string = REGEXP_REPLACE(this_string,"^Š\.","");
+				ELSEIF (SELECT this_string REGEXP "^Štn\." = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^Štn\.","");
 					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 					(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","438eb904-101a-a1cf-e25c-be74048d3631","Š");            
 				ELSEIF (SELECT this_string REGEXP "^Št\." = 1) THEN
 					SET this_string = REGEXP_REPLACE(this_string,"^Št\.","");
 					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 					(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","00d4f953-17f7-dc15-d6a2-7731b1804fca","Št");
-				ELSEIF (SELECT this_string REGEXP "^Štn\." = 1) THEN
-					SET this_string = REGEXP_REPLACE(this_string,"^Štn\.","");
+				ELSEIF (SELECT this_string REGEXP "^Š\." = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^Š\.","");
 					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 					(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","233e8729-a412-1c81-fc53-418d1ace6572","Štn");
-				ELSEIF (SELECT this_string REGEXP "^N\." = 1) THEN
-					SET this_string = REGEXP_REPLACE(this_string,"^N\.","");
+				ELSEIF (SELECT this_string REGEXP "^Ntn\." = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^Ntn\.","");
 					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 					(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","c52d46f8-1240-38bd-f864-3b1ffb9c3a2b","N");
 				ELSEIF (SELECT this_string REGEXP "^Nt\." = 1) THEN
 					SET this_string = REGEXP_REPLACE(this_string,"^Nt\.","");
 					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 					(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","36f34ffb-60fd-0a75-32eb-f88b5439e23e","Nt");
-				ELSEIF (SELECT this_string REGEXP "^Ntn\." = 1) THEN
-					SET this_string = REGEXP_REPLACE(this_string,"^Ntn\.","");
+				ELSEIF (SELECT this_string REGEXP "^N\." = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^N\.","");
 					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 					(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","6bffd75d-737f-3dbf-39de-da6cff2c1a2a","Ntn");
 				END IF;
@@ -627,55 +627,55 @@ BEGIN
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(uuid3,form_uuid,uuid2,2,"5a27fd3a-7c58-7d0f-3acb-78a6ecd8b286","bbf675cd-9e0d-9385-e923-331906782ca4","Finite verb");
             END IF;
-			IF (SELECT this_string REGEXP "^G\." = 1) THEN -- STEM
-				SET this_string = REGEXP_REPLACE(this_string,"^G\.","");
+		IF (SELECT this_string REGEXP "^Gtn\." = 1) THEN
+			SET this_string = REGEXP_REPLACE(this_string,"^Gtn\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
-				(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","42f9c637-53c5-f701-1ca3-0970eeda89a7","G");
+				(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","ebaee812-011f-59d5-fe0f-083e0965d266","Gtn");
 			ELSEIF (SELECT this_string REGEXP "^Gt\." = 1) THEN
 				SET this_string = REGEXP_REPLACE(this_string,"^Gt\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","6ef4493b-ffa6-ef0f-3084-36461541cc3e","Gt");
-            ELSEIF (SELECT this_string REGEXP "^Gtn\." = 1) THEN
-				SET this_string = REGEXP_REPLACE(this_string,"^Gtn\.","");
+			ELSEIF (SELECT this_string REGEXP "^G\." = 1) THEN
+				SET this_string = REGEXP_REPLACE(this_string,"^G\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
-				(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","ebaee812-011f-59d5-fe0f-083e0965d266","Gtn");
-            ELSEIF (SELECT this_string REGEXP "^D\." = 1) THEN
-				SET this_string = REGEXP_REPLACE(this_string,"^D\.","");
+				(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","42f9c637-53c5-f701-1ca3-0970eeda89a7","G");
+			ELSEIF (SELECT this_string REGEXP "^Dtn\." = 1) THEN
+				SET this_string = REGEXP_REPLACE(this_string,"^Dtn\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","089fddd0-828c-567c-344a-3605870a4e6e","D");
-            ELSEIF (SELECT this_string REGEXP "^Dt\." = 1) THEN
+			ELSEIF (SELECT this_string REGEXP "^Dt\." = 1) THEN
 				SET this_string = REGEXP_REPLACE(this_string,"^Dt\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","c9292de7-a686-e1e3-83a7-9c461e68b2b5","Dt");
-            ELSEIF (SELECT this_string REGEXP "^Dtn\." = 1) THEN
-				SET this_string = REGEXP_REPLACE(this_string,"^Dtn\.","");
+			ELSEIF (SELECT this_string REGEXP "^D\." = 1) THEN
+				SET this_string = REGEXP_REPLACE(this_string,"^D\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","32b1bc02-3c4c-cca1-e52f-112550886806","Dtn");
-            ELSEIF (SELECT this_string REGEXP "^Š\." = 1) THEN
-				SET this_string = REGEXP_REPLACE(this_string,"^Š\.","");
+			ELSEIF (SELECT this_string REGEXP "^Štn\." = 1) THEN
+				SET this_string = REGEXP_REPLACE(this_string,"^Štn\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","438eb904-101a-a1cf-e25c-be74048d3631","Š");            
-            ELSEIF (SELECT this_string REGEXP "^Št\." = 1) THEN
+			ELSEIF (SELECT this_string REGEXP "^Št\." = 1) THEN
 				SET this_string = REGEXP_REPLACE(this_string,"^Št\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","00d4f953-17f7-dc15-d6a2-7731b1804fca","Št");
-            ELSEIF (SELECT this_string REGEXP "^Štn\." = 1) THEN
-				SET this_string = REGEXP_REPLACE(this_string,"^Štn\.","");
+			ELSEIF (SELECT this_string REGEXP "^Š\." = 1) THEN
+				SET this_string = REGEXP_REPLACE(this_string,"^Š\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","233e8729-a412-1c81-fc53-418d1ace6572","Štn");
-            ELSEIF (SELECT this_string REGEXP "^N\." = 1) THEN
-				SET this_string = REGEXP_REPLACE(this_string,"^N\.","");
+			ELSEIF (SELECT this_string REGEXP "^Ntn\." = 1) THEN
+				SET this_string = REGEXP_REPLACE(this_string,"^Ntn\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","c52d46f8-1240-38bd-f864-3b1ffb9c3a2b","N");
-            ELSEIF (SELECT this_string REGEXP "^Nt\." = 1) THEN
+			ELSEIF (SELECT this_string REGEXP "^Nt\." = 1) THEN
 				SET this_string = REGEXP_REPLACE(this_string,"^Nt\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","36f34ffb-60fd-0a75-32eb-f88b5439e23e","Nt");
-            ELSEIF (SELECT this_string REGEXP "^Ntn\." = 1) THEN
-				SET this_string = REGEXP_REPLACE(this_string,"^Ntn\.","");
+			ELSEIF (SELECT this_string REGEXP "^N\." = 1) THEN
+				SET this_string = REGEXP_REPLACE(this_string,"^N\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(UUID(),form_uuid,uuid3,3,"f0d1ed89-75a2-1199-95f9-9ad12c460cbb","6bffd75d-737f-3dbf-39de-da6cff2c1a2a","Ntn");
-            END IF;
+			END IF;
             IF (SELECT this_string REGEXP "^imv\." = 1) THEN -- TENSE
 				SET this_string = REGEXP_REPLACE(this_string,"^imv\.","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
