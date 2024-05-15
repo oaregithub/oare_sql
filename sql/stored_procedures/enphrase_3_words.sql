@@ -30,7 +30,7 @@ BEGIN
 		AND this_obj_in_text+1 = that_obj_in_text
 	THEN
     */
-		CALL `oarebyue_0.3`.`iterate_obj_in_text_before_insert`(this_uuid);
+		CALL `oarebyue_0.3`.`iterate_obj_in_text_inclusive_insert`(this_uuid);
 		INSERT INTO text_discourse (`uuid`,`type`,`obj_in_text`,`child_num`,`text_uuid`,`tree_uuid`,`parent_uuid`) VALUES (UUID(), 'phrase', this_obj_in_text, this_child_num, this_text_uuid, this_tree_uuid, this_parent_uuid);
 		SELECT uuid INTO new_phrase_uuid FROM text_discourse WHERE id = max_td_id+1;
 		UPDATE text_discourse SET parent_uuid = new_phrase_uuid, child_num = '1' WHERE id = this_id;

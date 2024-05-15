@@ -36,12 +36,12 @@ BEGIN
                 SELECT MAX(id) INTO max_td_id FROM text_discourse;
 				
 				-- INSERT phrase row with same parent_uuid as existing word
-                CALL `oarebyue_0.3`.`iterate_obj_in_text_before_insert`(exist_uuid);
+                CALL `oarebyue_0.3`.`iterate_obj_in_text_inclusive_insert`(exist_uuid);
                 SET @new_phrase_uuid := UUID(); 
 			    INSERT INTO text_discourse (`uuid`,`type`,`obj_in_text`,`child_num`,`text_uuid`,`tree_uuid`,`parent_uuid`) VALUES (@new_phrase_uuid, 'phrase', exist_obj_in_text, exist_child_num, exist_text_uuid, exist_tree_uuid, exist_parent_uuid);
 				-- INSERT the preposition
-                CALL `oarebyue_0.3`.`iterate_obj_in_text_before_insert`(exist_uuid);
-                CALL `oarebyue_0.3`.`iterate_word_on_tablet_before_insert`(exist_uuid);
+                CALL `oarebyue_0.3`.`iterate_obj_in_text_inclusive_insert`(exist_uuid);
+                CALL `oarebyue_0.3`.`iterate_word_on_tablet_inclusive_insert`(exist_uuid);
                 SET @prep_uuid := UUID();
 				INSERT INTO text_discourse (`uuid`,`type`,`obj_in_text`,`word_on_tablet`,`child_num`,`text_uuid`,`tree_uuid`,`parent_uuid`,`spelling_uuid`,`explicit_spelling`,`transcription`) 
                                   VALUES (@prep_uuid, 'word', exist_obj_in_text+1, exist_word_on_tablet, '1', exist_text_uuid, exist_tree_uuid, @new_phrase_uuid, prep_spell_uuid, prep_explicit_spelling, prep_explicit_spelling);

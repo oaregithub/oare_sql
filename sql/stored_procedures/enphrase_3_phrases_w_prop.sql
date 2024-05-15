@@ -40,7 +40,7 @@ BEGIN
 	    AND this_child_num = that_child_num-1
 	    AND this_child_num = final_child_num-2
 	THEN
-        CALL `iterate_obj_in_text_before_insert`(this_uuid);
+        CALL `iterate_obj_in_text_inclusive_insert`(this_uuid);
         CALL `iterate_child_num_on_delete`(this_uuid);
         CALL `iterate_child_num_on_delete`(that_uuid);
 		INSERT INTO text_discourse (`uuid`,`type`,`obj_in_text`,`child_num`,`text_uuid`,`tree_uuid`,`parent_uuid`) VALUES (@new_phrase_uuid, 'phrase', this_obj_in_text, this_child_num, this_text_uuid, this_tree_uuid, this_parent_uuid);
