@@ -2,7 +2,7 @@ CREATE PROCEDURE `add_word`(word VARCHAR (250), word_type VARCHAR (250), this_st
 BEGIN
 	DECLARE uuid1, uuid2 CHAR(36) DEFAULT NULL;
 	SET uuid1 = UUID(); SET uuid2 = UUID();
-    INSERT INTO dictionary_word (uuid, word, `type`) VALUES 
+    INSERT INTO dictionary_word (uuid,word,`type`) VALUES 
     (uuid1,word,word_type);
     IF (this_string != "") THEN
 		CALL add_lemma(uuid1, this_string);
@@ -10,4 +10,5 @@ BEGIN
     IF (form != "") THEN
         CALL `add_form`(uuid1,form,spelling,pos,that_string);
     END IF;
+    IF
 END
