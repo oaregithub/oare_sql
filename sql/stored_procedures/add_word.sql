@@ -10,5 +10,4 @@ BEGIN
     IF (form != "") THEN
         CALL `add_form`(uuid1,form,spelling,pos,that_string);
     END IF;
-    IF
 END
