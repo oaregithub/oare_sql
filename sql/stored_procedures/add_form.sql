@@ -4,9 +4,9 @@ BEGIN
 	SET uuid1 = UUID();
     INSERT INTO dictionary_form (uuid, reference_uuid, form) VALUES 
     (uuid1,word_uuid,form);
-     IF (spelling != "" ) THEN
-		INSERT INTO dictionary_spelling (uuid, reference_uuid, explicit_spelling) VALUES
-		(UUID(),uuid1,spelling);
+    IF (spelling != "" ) THEN
+		  INSERT INTO dictionary_spelling (uuid, reference_uuid, explicit_spelling) VALUES
+		  (UUID(),uuid1,spelling);
     END IF;
     IF (this_string != "" AND pos != "") THEN
 	    CALL add_parse(uuid1, pos, this_string);
