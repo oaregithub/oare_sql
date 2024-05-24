@@ -7,7 +7,7 @@ BEGIN
     INSERT INTO dictionary_form (uuid, reference_uuid, form) VALUES 
     (uuid1,word_uuid,form);
     IF (spellings != "" ) THEN
-        IF (SELECT spellings REGEXP "^.*," = 1) THEN
+        IF (SELECT spellings REGEXP "^.*, " = 1) THEN
 		    SET spellings = REGEXP_REPLACE(spellings,", "," ");
 		    SET i = 1;
             WHILE strLen < LENGTH(spellings)  DO
