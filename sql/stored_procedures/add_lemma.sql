@@ -1373,18 +1373,36 @@ BEGIN
 				SET this_string = REGEXP_REPLACE(this_string,"^indep ","");
 				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 				(sub3_uuid1,word_uuid,sub2_uuid1,3,"11be11d9-f2e8-e12b-520d-88d7f653b746","7fa58d93-1dab-b27d-e6c5-c03b7218b219","Independent personal pronoun");
-				IF (SELECT this_string REGEXP "^first " = 1) THEN
-					SET this_string = REGEXP_REPLACE(this_string,"^first ","");
-					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
-					(UUID(),word_uuid,sub3_uuid1,4,"b3b45c2f-83f9-7077-20fe-0f9587a9870c","1bb5c53c-83ec-fb05-8378-9cc7ff04f961","First Person");
-				ELSEIF (SELECT this_string REGEXP "^second " = 1) THEN
-					SET this_string = REGEXP_REPLACE(this_string,"^second ","");
-					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
-					(UUID(),word_uuid,sub3_uuid1,4,"b3b45c2f-83f9-7077-20fe-0f9587a9870c","87ba5a1c-89e2-ac30-02e8-9d3abe9df6ef","Second Person");
-				ELSEIF (SELECT this_string REGEXP "^third " = 1) THEN
-					SET this_string = REGEXP_REPLACE(this_string,"^third ","");
-					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
-					(UUID(),word_uuid,sub3_uuid1,4,"b3b45c2f-83f9-7077-20fe-0f9587a9870c","01412cae-e7d2-1fe7-ef2b-4d6d701dfc45","Third Person");
+				IF ((SELECT this_string REGEXP ("^first ")) OR (SELECT this_string REGEXP "^1 ") OR (SELECT this_string REGEXP "^1st ")) THEN
+					IF (SELECT this_string REGEXP "^first " = 1) THEN
+						SET this_string = REGEXP_REPLACE(this_string,"^first ","");
+					ELSEIF (SELECT this_string REGEXP "^1 " = 1) THEN
+						SET this_string = REGEXP_REPLACE(this_string,"^1 ","");
+					ELSEIF (SELECT this_string REGEXP "^1st " = 1) THEN
+						SET this_string = REGEXP_REPLACE(this_string,"^1st ","");
+					END IF;
+					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES
+					(UUID(),form_uuid,uuid5,3,"b3b45c2f-83f9-7077-20fe-0f9587a9870c","1bb5c53c-83ec-fb05-8378-9cc7ff04f961","First Person");
+				ELSEIF ((SELECT this_string REGEXP ("^second ")) OR (SELECT this_string REGEXP "^2 ") OR (SELECT this_string REGEXP "^2nd ")) THEN
+					IF (SELECT this_string REGEXP "^second " = 1) THEN
+						SET this_string = REGEXP_REPLACE(this_string,"^second ","");
+					ELSEIF (SELECT this_string REGEXP "^2 " = 1) THEN
+						SET this_string = REGEXP_REPLACE(this_string,"^2 ","");
+					ELSEIF (SELECT this_string REGEXP "^2nd " = 1) THEN
+						SET this_string = REGEXP_REPLACE(this_string,"^2nd ","");
+					END IF;
+					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES
+					(UUID(),form_uuid,uuid5,3,"b3b45c2f-83f9-7077-20fe-0f9587a9870c","87ba5a1c-89e2-ac30-02e8-9d3abe9df6ef","Second Person");
+				ELSEIF ((SELECT this_string REGEXP ("^third ")) OR (SELECT this_string REGEXP "^3 ") OR (SELECT this_string REGEXP "3rd ")) THEN
+					IF (SELECT this_string REGEXP "^third " = 1) THEN
+						SET this_string = REGEXP_REPLACE(this_string,"^third ","");
+					ELSEIF (SELECT this_string REGEXP "^3 " = 1) THEN
+						SET this_string = REGEXP_REPLACE(this_string,"^3 ","");
+					ELSEIF (SELECT this_string REGEXP "^3rd " = 1) THEN
+						SET this_string = REGEXP_REPLACE(this_string,"^3rd ","");
+					END IF;
+					INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES
+					(UUID(),form_uuid,uuid5,3,"b3b45c2f-83f9-7077-20fe-0f9587a9870c","01412cae-e7d2-1fe7-ef2b-4d6d701dfc45","Third Person");
 				END IF;
 				IF (SELECT this_string REGEXP "^c " = 1) THEN
 					SET this_string = REGEXP_REPLACE(this_string,"^c ","");
@@ -1441,18 +1459,36 @@ BEGIN
 			SET this_string = REGEXP_REPLACE(this_string,"^indep_poss ","");
 			INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
 			(sub2_uuid2,word_uuid,sub1_uuid3,2,"11be11d9-f2e8-e12b-520d-88d7f653b746","88a5d094-1e27-8e01-d358-dd3a59fe4c5f","Independent possessive");
-			IF (SELECT this_string REGEXP "^first " = 1) THEN
-				SET this_string = REGEXP_REPLACE(this_string,"^first ","");
-				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
-				(UUID(),word_uuid,sub2_uuid2,3,"b3b45c2f-83f9-7077-20fe-0f9587a9870c","1bb5c53c-83ec-fb05-8378-9cc7ff04f961","First Person");
-			ELSEIF (SELECT this_string REGEXP "^second " = 1) THEN
-				SET this_string = REGEXP_REPLACE(this_string,"^second ","");
-				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
-				(UUID(),word_uuid,sub2_uuid2,3,"b3b45c2f-83f9-7077-20fe-0f9587a9870c","87ba5a1c-89e2-ac30-02e8-9d3abe9df6ef","Second Person");
-			ELSEIF (SELECT this_string REGEXP "^third " = 1) THEN
-				SET this_string = REGEXP_REPLACE(this_string,"^third ","");
-				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES 
-				(UUID(),word_uuid,sub2_uuid2,3,"b3b45c2f-83f9-7077-20fe-0f9587a9870c","01412cae-e7d2-1fe7-ef2b-4d6d701dfc45","Third Person");
+			IF ((SELECT this_string REGEXP ("^first ")) OR (SELECT this_string REGEXP "^1 ") OR (SELECT this_string REGEXP "^1st ")) THEN
+				IF (SELECT this_string REGEXP "^first " = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^first ","");
+				ELSEIF (SELECT this_string REGEXP "^1 " = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^1 ","");
+				ELSEIF (SELECT this_string REGEXP "^1st " = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^1st ","");
+				END IF;
+				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES
+				(UUID(),form_uuid,uuid5,3,"b3b45c2f-83f9-7077-20fe-0f9587a9870c","1bb5c53c-83ec-fb05-8378-9cc7ff04f961","First Person");
+			ELSEIF ((SELECT this_string REGEXP ("^second ")) OR (SELECT this_string REGEXP "^2 ") OR (SELECT this_string REGEXP "^2nd ")) THEN
+				IF (SELECT this_string REGEXP "^second " = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^second ","");
+				ELSEIF (SELECT this_string REGEXP "^2 " = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^2 ","");
+				ELSEIF (SELECT this_string REGEXP "^2nd " = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^2nd ","");
+				END IF;
+				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES
+				(UUID(),form_uuid,uuid5,3,"b3b45c2f-83f9-7077-20fe-0f9587a9870c","87ba5a1c-89e2-ac30-02e8-9d3abe9df6ef","Second Person");
+			ELSEIF ((SELECT this_string REGEXP ("^third ")) OR (SELECT this_string REGEXP "^3 ") OR (SELECT this_string REGEXP "3rd ")) THEN
+				IF (SELECT this_string REGEXP "^third " = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^third ","");
+				ELSEIF (SELECT this_string REGEXP "^3 " = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^3 ","");
+				ELSEIF (SELECT this_string REGEXP "^3rd " = 1) THEN
+					SET this_string = REGEXP_REPLACE(this_string,"^3rd ","");
+				END IF;
+				INSERT INTO item_properties (uuid,reference_uuid,parent_uuid,`level`,variable_uuid, value_uuid, `value`) VALUES
+				(UUID(),form_uuid,uuid5,3,"b3b45c2f-83f9-7077-20fe-0f9587a9870c","01412cae-e7d2-1fe7-ef2b-4d6d701dfc45","Third Person");
 			END IF;
 			IF (SELECT this_string REGEXP "^m " = 1) THEN
 				SET this_string = REGEXP_REPLACE(this_string,"^m ","");
